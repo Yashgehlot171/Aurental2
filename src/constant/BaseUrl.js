@@ -1,0 +1,1 @@
+export const BASE_URL = "http://ec2-54-251-142-179.ap-southeast-1.compute.amazonaws.com:6060/api/v1/aurental/";
