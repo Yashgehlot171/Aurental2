@@ -13,7 +13,7 @@ export default class App extends Component {
         this.state = {
             email: '',
             password: '',
-            showpassword: true
+            showpassword: true,isLoading: false
         }
     }
 
@@ -48,7 +48,7 @@ export default class App extends Component {
                         </TouchableOpacity>
                     }
                 />
-                <View style={{backgroundColor:'#000',width:'100%',height:1,marginVertical:10}}/>
+                <View style={{backgroundColor:'#000',width:'100%',height:1,marginVertical:1}}/>
                 <ScrollView>
                      <View style={{flex:1,padding:14,alignItems:'center',}}>
 

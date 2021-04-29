@@ -15,9 +15,9 @@ const screen11 = () => {
    <View style={{alignItems:"center",  }}>
      <Image
         style={{height:70, width:70, alignSelf:"center", marginTop:105, marginBottom:35}}
-        source={require('../../../../assets/car1.png')}
+        source={require('../../../../assets/icon/submitted.png')}
       />
-      <Text style={{textAlign:"center", fontSize:17, color:"gray",fontWeight:"600"}}>Delivery has been paid</Text>
+      <Text style={{textAlign:"center", fontSize:22, color:"gray",fontWeight:'bold'}}>Delivery has been paid.</Text>
       <Text style={{textAlign:"center", fontSize:13, color:"gray", marginBottom:75,padding:20}}>Your delivery has been paid. The deliveree will soon
 
 pickup your item to deliver.</Text>
@@ -41,7 +41,7 @@ pickup your item to deliver.</Text>
 
 
           <TouchableOpacity style={{height:45, width:"75%", borderRadius:5, alignSelf:"center", backgroundColor:"#296C94",marginBottom:5 }}>
-        <Text style={{textAlign:"center", marginTop:10}}>Back to Home</Text>
+        <Text style={{textAlign:"center", marginTop:14,color:'#fff',fontWeight:'bold'}}>Back to Home</Text>
       </TouchableOpacity>
       </ScrollView>
    </View>

@@ -11,7 +11,7 @@ import BASE_URL from '../constant/BaseUrl';
 
 import { getUniqueId, getManufacturer } from 'react-native-device-info';
 let brand = DeviceInfo.getBrand();
-let deviceId = DeviceInfo.getDeviceId();
+let deviceId = DeviceInfo.getUniqueId();
 let deviceToken = DeviceInfo.getDeviceToken();
 
 
@@ -23,40 +23,55 @@ export default class App extends Component {
         this.state = {
             email: '',
             password: '',
-            showpassword: true
+            showpassword: true,
+            token:''
         }
     }
-   getDataUsingPost = () => {
-    //POST json
-    let _data = { device_id: 'dwscngkdddnn44ffff', device_name:brand ,app_type: 2 ,push_token:'sjdsfbkkasbdbd' }
-    
-    fetch('http://ec2-54-251-142-179.ap-southeast-1.compute.amazonaws.com:6060/api/v1/aurental/device_register', {
-      method: "POST",
-      body: JSON.stringify(_data),
-      headers: {"Content-type": "application/json; charset=UTF-8"}
-    })
-    .then((response) => response.json())
-    .then((responseJson) => {
-        console.log("jso22222222222n",responseJson );
 
-        if(responseJson.status===1){
-            let user_info = responseJson.data
-            let user_token = responseJson.token
-            AsyncStorage.setItem('user_token', user_token)
-            console.log('dfd',user_token)
-            this.props.navigation.navigate('CustomerLogin')
-        }
-    })
-    .catch((error) => {
-      
-    //   this.setState({ isLoading: false })
-      console.error(error);
-    });
-  };
+    componentWillMount = async () => {
+        console.log('Device id', deviceId)
+        console.log('Device name', brand)
+        // alert(deviceId)
+        // const data = await this.performTimeConsumingTask();
+        // if (data !== null) {
+        this.getDataUsingPost();
+        //   console.log('dfd88888',deviceId)
+        // }
+    }
+
+
+    getDataUsingPost = () => {
+        //POST json
+        let _data = { device_id: deviceId, device_name: brand, app_type: 2, push_token: 'sjdsfbkkasbdbd' }
+        console.log('device register reucst data', _data);
+        fetch('http://ec2-54-251-142-179.ap-southeast-1.compute.amazonaws.com:6060/api/v1/aurental/device_register', {
+            method: "POST",
+            body: JSON.stringify(_data),
+            headers: { "Content-type": "application/json; charset=UTF-8" }
+        })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                console.log("response", responseJson);
+
+                if (responseJson.status === 1) {
+                    let user_info = responseJson.data
+                    let user_token = responseJson.token
+                    // AsyncStorage.setItem('user_token', user_token)
+                    console.log('token', user_token)
+                    this.setState({token:user_token})
+                    // this.props.navigation.navigate('CustomerLogin')
+                }
+            })
+            .catch((error) => {
+
+                //   this.setState({ isLoading: false })
+                console.error(error);
+            });
+    };
     // onLoginPressHandle =  () => {
-    
+
     //     let _data = { device_id: 'dwscngkdddnn44ffff', device_name:'moto' ,app_type: 2 ,push_token:'sjdsfbkkasbdbd' }
-    
+
     //     fetch('http://ec2-54-251-142-179.ap-southeast-1.compute.amazonaws.com:6060/api/v1/aurental/device_register', {
     //       method: "POST",
     //       body: JSON.stringify(_data),
@@ -93,41 +108,41 @@ export default class App extends Component {
     //         //   this.setState({ isLoading: false })
     //           console.error(error);
     //         });
-        
+
     //   };
-    
+
 
     render() {
         return (
             <View style={styles.container}>
 
 
-                  <SafeAreaView style={{ flex: 1 ,}}>
-                        <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
-                     
-                     <View style={{flex:1,padding:14,alignItems:'center',justifyContent:'center'}}>
-                     
-                           <Image style={{ width: 80, height: 80,marginLeft:5, resizeMode: 'contain',marginVertical:25 }} source={require('../../assets/car.png')} />
-                           <TouchableOpacity style={styles.button_Style}
-    onPress={() => { alert('working')}}
-                            >
-                                <Text style={{ fontSize:16, color: Colors.introButtonLabel }}>Are you a driver? </Text>
-                            </TouchableOpacity>
+                <SafeAreaView style={{ flex: 1, }}>
+                    <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
 
-                            <Image style={{ width: 80, height: 80,marginLeft:5, resizeMode: 'contain',marginVertical:25 }} source={require('../../assets/product.png')} />
-                           <TouchableOpacity style={styles.button_Style}
-   
-       onPress={() => { 
-           this.getDataUsingPost();
-        // this.props.navigation.navigate('CustomerLogin')
+                    <View style={{ flex: 1, padding: 14, alignItems: 'center', justifyContent: 'center' }}>
 
-         }}
-                            >
-                                <Text style={{ fontSize:16, color: Colors.introButtonLabel }}>Have parcel to deliver?</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </SafeAreaView>
-             
+                        <Image style={{ width: 80, height: 80, marginLeft: 5, resizeMode: 'contain', marginVertical: 25 }} source={require('../../assets/car.png')} />
+                        <TouchableOpacity style={styles.button_Style}
+                            onPress={() => { this.props.navigation.navigate('DriverLogin',{token:this.state.token}) }}
+                        >
+                            <Text style={{ fontSize: 16, color: Colors.introButtonLabel }}>Are you a driver? </Text>
+                        </TouchableOpacity>
+
+                        <Image style={{ width: 80, height: 80, marginLeft: 5, resizeMode: 'contain', marginVertical: 25 }} source={require('../../assets/product.png')} />
+                        <TouchableOpacity style={styles.button_Style}
+
+                            onPress={() => {
+                                //    this.getDataUsingPost();
+                                this.props.navigation.navigate('CustomerLogin',{token:this.state.token})
+
+                            }}
+                        >
+                            <Text style={{ fontSize: 16, color: Colors.introButtonLabel }}>Have parcel to deliver?</Text>
+                        </TouchableOpacity>
+                    </View>
+                </SafeAreaView>
+
             </View>
         );
     }
@@ -136,7 +151,7 @@ export default class App extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-      backgroundColor:'#fff',
+        backgroundColor: '#fff',
         alignItems: 'center',
 
     },
@@ -145,12 +160,12 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         width: '95%',
         // borderWidth: 1,
-        backgroundColor:Colors.gry_color,
-  
+        backgroundColor: Colors.gry_color,
+
         borderBottomWidth: 0,
         height: 45,
         color: Colors.dark_gry,
-        marginTop: 10,paddingLeft:10
+        marginTop: 10, paddingLeft: 10
 
     },
     button_Style: {

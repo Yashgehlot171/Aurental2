@@ -26,7 +26,7 @@ export default class App extends Component {
                         <Header
 
 statusBarProps={{ barStyle: 'dark-content' }}
-height={85}
+height={80}
 containerStyle={{ elevation: 0, justifyContent: 'center', borderBottomWidth: 0 }}
 backgroundColor={Colors.text_white}
 placement={"left"}
@@ -42,9 +42,9 @@ centerComponent={
 }
 
 />
-<View style={{backgroundColor:'#000',width:'100%',height:0.5,marginVertical:10}}/>
+<View style={{backgroundColor:'#000',width:'100%',height:0.5,marginVertical:1}}/>
 
-                     <View style={{flex:1,padding:21,}}>
+                     <View style={{flex:1,padding:21,paddingTop:-10}}>
 <ScrollView>
                      <Text style={{color:Colors.dark_gry,fontSize:16,fontWeight:'bold'}}>Receiver Name</Text>
                      <Text style={{color:Colors.dark_gry,fontSize:16,marginVertical:10}}>Jane Doe</Text>

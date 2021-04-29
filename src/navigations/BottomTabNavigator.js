@@ -8,6 +8,13 @@ import HomeC from '../screen/customerscreen/TabScreen/HomeC'
 import BookingC from '../screen/customerscreen/TabScreen/BookingC'
 import NotificationC from '../screen/customerscreen/TabScreen/NotificationC'
 import MoreC from '../screen/customerscreen/TabScreen/MoreC'
+import Setting from '../screen/customerscreen/TabScreen/Setting';
+import PrivacyPolicy from '../screen/customerscreen/TabScreen/PrivacyPolicy';
+import AboutUs from '../screen/customerscreen/TabScreen/AboutUs';
+import ContactUs from '../screen/customerscreen/TabScreen/ContactUs'
+import TermsConditions from '../screen/customerscreen/TabScreen/TermsConditions'
+import ChangePassword from '../screen/customerscreen/TabScreen/ChangePassword'
+import EditProfileDetails from '../screen/customerscreen/TabScreen/EditProfileDetails'
 import SpecialDeal from '../screen/customerscreen/TabScreen/SpecialDeal'
 import CourierCalculator from '../screen/customerscreen/TabScreen/CourierCalculator';
 import ScheduleDelivery from '../screen/customerscreen/TabScreen/ScheduleDelivery';
@@ -164,7 +171,48 @@ const MoreCStack = createStackNavigator(
                 header: null
             })
         },
-
+        Setting: {
+            screen: Setting,
+            navigationOptions: ({ navigation }) => ({
+                header: null
+            })
+        },
+        PrivacyPolicy: {
+            screen: PrivacyPolicy,
+            navigationOptions: ({ navigation }) => ({
+                header: null
+            })
+        },
+        AboutUs: {
+            screen: AboutUs,
+            navigationOptions: ({ navigation }) => ({
+                header: null
+            })
+        },
+        ContactUs: {
+            screen: ContactUs,
+            navigationOptions: ({ navigation }) => ({
+                header: null
+            })
+        },
+        TermsConditions: {
+            screen: TermsConditions,
+            navigationOptions: ({ navigation }) => ({
+                header: null
+            })
+        },
+        ChangePassword: {
+            screen: ChangePassword,
+            navigationOptions: ({ navigation }) => ({
+                header: null
+            })
+        },
+        EditProfileDetails: {
+            screen: EditProfileDetails,
+            navigationOptions: ({ navigation }) => ({
+                header: null
+            })
+        },
     }, {
     initialRouteName: 'MoreC'
 }

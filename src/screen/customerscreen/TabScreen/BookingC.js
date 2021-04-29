@@ -2,9 +2,9 @@
 import React, { Component } from 'react'
 import { TouchableOpacity, TextInput, ScrollViewBase } from 'react-native';
 import { SafeAreaView } from 'react-native';
-import { Platform, StyleSheet, StatusBar, Text, View, Alert, ImageBackground, Image, AsyncStorage, FlatList } from 'react-native';
+import { Platform, StyleSheet, StatusBar, Text, View, Alert, ImageBackground, Image, FlatList } from 'react-native';
 import Colors from '../../../constant/Color';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Header, Icon, Avatar } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
 import { ButtonGroup } from 'react-native-elements';
@@ -19,6 +19,8 @@ export default class App extends Component {
             DayselectedIndex: 0,
             JobType: '',
             selectedStartDate: null,
+            order_history:[],
+            status:'',
             Data: [
                 {
                     headingText: 'Rent Commercial Vans & Lorries with Vibrance',
@@ -55,7 +57,57 @@ export default class App extends Component {
         this.updateIndex = this.updateIndex.bind(this)
 
     }
-
+    componentWillMount = async () => {
+        var value = await AsyncStorage.getItem('user_token');
+        // const data = await this.performTimeConsumingTask();
+        // if (data !== null) {
+          console.log('token',value)
+          this.getDataUsingPost(value);
+        // }
+      }
+  
+  
+   getDataUsingPost = (value) => {
+    //POST json
+    // let _data = { device_id: 'dwscngkdddnn44ffff', device_name:brand ,app_type: 2 ,push_token:'sjdsfbkkasbdbd' }
+    
+    fetch('http://ec2-54-251-142-179.ap-southeast-1.compute.amazonaws.com:6060/api/v1/aurental/aurental/order_list_histoy', {
+      method: "POST",
+      // body: JSON.stringify(_data),
+      // 'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl9pZCI6OSwidHlwZSI6ImRldmljZSIsImlhdCI6MTYxODk3NzM0M30.FZB3CfNkAR4CYOUD6H54Ml0DvAAUGTKq7R_8fLUbdOM',
+      headers: {"Content-type": "application/json; charset=UTF-8",
+      Authorization:value
+    }
+      // headers: {
+      //   'Authorization': 'Bearer ' + user_token,
+      //   Accept: 'application/json',
+      //   'Content-Type': 'application/json'
+      // },
+    })
+    .then((response) => response.json())
+    .then((responseJson) => {
+        console.log("jso22222222222YASH",responseJson );
+        let status = responseJson.status
+        console.log('status',status)
+        this.setState({status:status})
+        if(responseJson.status===1){
+            let user_info = responseJson.results
+            let status = responseJson.status
+            console.log('status',status)
+            // let user_token = responseJson.token
+            // AsyncStorage.setItem('user_token', user_info)
+            console.log('dfd',user_info)
+            this.setState({order_history:user_info})
+            // // this.props.navigation.navigate('CustomerLogin')
+            // console.log('data111',this.state.user_data)
+        }
+    })
+    .catch((error) => {
+      
+    //   this.setState({ isLoading: false })
+      console.error(error);
+    });
+  };
     updateIndex(selectedIndex) {
         this.setState({ selectedIndex })
         if (selectedIndex === 0) {
@@ -71,7 +123,7 @@ export default class App extends Component {
         }
     }
     renderOngoing = ({ item, index }) => (
-        <View style={{ margin: 5,marginHorizontal:10, flex: 1,backgroundColor:'#F7F7F7' ,padding:15}}>
+        <View style={{ margin: 5,marginHorizontal:10, flex: 1,backgroundColor:Colors.gry_color ,padding:15}}>
      
      <TouchableOpacity onPress ={()=>{this.props.navigation.navigate('DeliveryContact')}}>
         <View style={{flexDirection:'row',justifyContent:'space-between'}}>
@@ -90,19 +142,19 @@ export default class App extends Component {
     )
 
     renderHistory = ({ item, index }) => (
-        <View style={{ margin: 5,marginHorizontal:10, flex: 1,backgroundColor:'#F7F7F7' ,padding:15}}>
+        <View style={{ margin: 5,marginHorizontal:10, flex: 1,backgroundColor:Colors.gry_color ,padding:15}}>
             
      <TouchableOpacity onPress ={()=>{this.props.navigation.navigate('RateDelivery')}}>
             <View style={{flexDirection:'row',justifyContent:'space-between'}}>
-     <Text style={{fontSize:16,color:Colors.dark_gry,fontWeight:'bold'}}>Delivery ID : 1234567890</Text>
+     <Text style={{fontSize:16,color:Colors.dark_gry,fontWeight:'bold'}}>Delivery ID : {item.order_code}</Text>
 <Text style={{color:Colors.dark_gry}}>Status</Text>
 </View>
 <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:10,marginBottom:5}}>
-     <Text style={{fontSize:16,color:Colors.dark_gry,}}>Receiver Name : Receiver</Text>
+     <Text style={{fontSize:16,color:Colors.dark_gry,}}>Receiver Name : {item.receiver_name}</Text>
 <Text style={{color:Colors.dark_gry}}>Item delivering</Text>
 </View>
 
-     <Text style={{fontSize:16,color:Colors.dark_gry,fontWeight:'bold',marginBottom:10,marginTop:5}}>Item Type : Parcel</Text>
+     <Text style={{fontSize:16,color:Colors.dark_gry,fontWeight:'bold',marginBottom:10,marginTop:5}}>Item Type : {item.package_name}</Text>
 <Text style={{color:Colors.dark_gry}}>(L/W/H)</Text>
 </TouchableOpacity>
         </View>
@@ -121,7 +173,7 @@ export default class App extends Component {
                         <Header
 
                     statusBarProps={{ barStyle: 'dark-content' }}
-                    height={85}
+                    height={80}
                     containerStyle={{ elevation: 0, justifyContent: 'center', borderBottomWidth: 0 }}
                     backgroundColor={Colors.text_white}
                     placement={"left"}
@@ -137,7 +189,7 @@ export default class App extends Component {
                     }
                    
                 />
-                <View style={{backgroundColor:'#000',width:'100%',height:0.5,marginVertical:10}}/>
+                <View style={{backgroundColor:'#000',width:'100%',height:0.5,marginVertical:1}}/>
                 <ButtonGroup
                                 onPress={this.updateIndex}
                                 selectedIndex={selectedIndex}
@@ -166,16 +218,21 @@ export default class App extends Component {
                                     :null}
                                      {selectedIndex == 1 ?
                                 <View style={{flex:1}}>
+                                   
+                                   
                                                                           <View style={{backgroundColor:'#ccc',width:'100%',height:1.5,marginTop:-5}}/>
+                                   {(this.state.status==0)?
+                                   <Text style={{marginTop:40,fontSize:22,textAlign:'center'}}>No History Data found</Text>:
                                       <FlatList
                             //  horizontal
                             style={{ width: '100%', flex: 1 }}
 
                             showsVerticalScrollIndicator={false}
-                            data={this.state.Data}
+                            data={this.state.order_history}
                             renderItem={this.renderHistory}
                         // ListEmptyComponent={this.ListEmpty}
                         />
+                                   }
                                     </View>
                                     :null}
             

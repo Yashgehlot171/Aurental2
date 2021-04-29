@@ -14,8 +14,11 @@ import ChooseRole from '../screen/ChooseRole';
 // import RegisterScreen from '../Screens/RegisterScreen';
 // import OtpScreen from '../Screens/OtpScreen';
 import BottomTabNavigator from '../navigations/BottomTabNavigator';
+import BottomTabNavigatorDriver from '../navigations/BottomTabNavigatorDriver';
 import App from '../screen/customerscreen/TabScreen/MoreC';
 // import IcoCalculation from '../Screens/TabScreen/HomeScreen/IcoCalculation';
+import DriverLogin from '../screen/driverscreen/DriverLogign'
+import DriverSignUp from '../screen/driverscreen/DriverSignup'
 const SplashStack = createStackNavigator(
     {
       Splash: {
@@ -51,6 +54,20 @@ const SplashStack = createStackNavigator(
            
             }) 
           },
+          DriverLogin: {
+            screen: DriverLogin,
+            navigationOptions:()=>({
+              header: null,
+           
+            }) 
+          },
+          DriverSignUp: {
+            screen: DriverSignUp,
+            navigationOptions:()=>({
+              header: null,
+           
+            }) 
+          },
           ForgotPassword: {
             screen: ForgotPassword,
             navigationOptions:()=>({
@@ -77,14 +94,30 @@ const SplashStack = createStackNavigator(
            
           }
         ) 
+
+        const DriverAppStack = createStackNavigator({
+          BottomTabNavigatorDriver: {
+            screen : BottomTabNavigatorDriver,
+            navigationOptions:{
+              header:null,
+            }
+          },
+        
+         
+        },
+          {
+            initialRouteName: 'BottomTabNavigatorDriver',
+           
+          }
+        ) 
       
 
     export default createAppContainer(createSwitchNavigator({
         Splash: Splash,
        
       Auth :AuthStack,
-      CustomerApp:AppStack
-
+      CustomerApp:AppStack,
+      DriverApp:DriverAppStack
       }),
         {
           initialRouteName: 'AuthStack',

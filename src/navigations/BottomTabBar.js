@@ -139,8 +139,8 @@ class ServiceTabBar extends React.Component {
                                 <Tab
                                 title={'Notification'}
 
-                                activeImage={require('../../assets/icon/notificationActive).png')}
-                                unactiveImage={require('../../assets/icon/notificationInactive).png')}
+                                activeImage={require('../../assets/icon/notificationActive.png')}
+                                unactiveImage={require('../../assets/icon/notification.png')}
                                 onPress={() => {
                                     // this.props.refreshMore();
                                     navigation.navigate(route.routeName)

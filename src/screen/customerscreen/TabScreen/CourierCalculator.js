@@ -16,7 +16,7 @@ const Screen15 = () => {
     <Header
 
     statusBarProps={{ barStyle: 'dark-content' }}
-    height={85}
+    height={80}
     containerStyle={{ elevation: 0, justifyContent: 'center', borderBottomWidth: 0 }}
     backgroundColor={Colors.text_white}
     placement={"left"}
@@ -32,7 +32,7 @@ const Screen15 = () => {
     }
     
     />
-    <View style={{backgroundColor:'#000',width:'100%',height:0.5,marginVertical:10}}/>
+    <View style={{backgroundColor:'#000',width:'100%',height:0.5,marginVertical:1}}/>
     
   
        <ScrollView style={{flex:1}}>

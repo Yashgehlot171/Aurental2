@@ -4,6 +4,7 @@ import { TouchableOpacity, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native';
 import { Platform, StyleSheet, StatusBar, Text, View, Alert, ImageBackground, Image, ActivityIndicator } from 'react-native';
 import Colors from '../../constant/Color';
+import { Header, Icon, Avatar } from 'react-native-elements';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 export default class App extends Component {
     constructor(props) {
@@ -32,7 +33,7 @@ alert('Please Enter Email Address ')
       // console.log('token',value)
       this.getDataUsingPost(value);
   }
-    getDataUsingPost = (value) => {
+    getDataUsingPost = () => {
         //POST json
         // console.log('dfgfdgdgdg',token)
         // let token =  AsyncStorage.getItem('user_token');
@@ -42,7 +43,7 @@ alert('Please Enter Email Address ')
           method: "POST",
           body: JSON.stringify(_data),
           headers: {"Content-type": "application/json; charset=UTF-8",
-          Authorization:value
+          Authorization:this.props.navigation.getParam('token')
         }
 
         })
@@ -71,19 +72,26 @@ alert('Please Enter Email Address ')
 
                   <SafeAreaView style={{ flex: 1 ,}}>
                         <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
-                     
-                     <View style={{flex:1,}}>
+                  
+                     <Header
 
-                      <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:30}}>
-                        <TouchableOpacity style={{width:30,height:30,}} onPress={()=>{
-                            this.props.navigation.goBack()
-                        }}>
-                           <Image style={{ width: 23, height: 24,marginLeft:0, resizeMode: 'contain',tintColor:Colors.dark_gry }} source={require('../../../assets/icon/left.png')} />
-                           </TouchableOpacity>
-                           <Text style={{fontSize:18,fontWeight:'bold',color:Colors.text_black,}}>Forgot Password</Text>
-                           <Text style={{fontSize:18,fontWeight:'bold',color:Colors.text_black,}}></Text>
-                           
-                           </View> 
+statusBarProps={{ barStyle: 'dark-content' }}
+height={85}
+containerStyle={{ elevation: 0, justifyContent: 'center', borderBottomWidth: 0 }}
+backgroundColor={Colors.text_white}
+placement={"left"}
+leftComponent={
+    <TouchableOpacity style={{ alignSelf: 'center', justifyContent: 'center', height: 25 }} onPress={() => this.props.navigation.goBack()}>
+        <Image style={{ width: 25, height: 25, tintColor: '#000', marginLeft: 10, marginTop: 5, resizeMode: 'contain' }} source={require('../../../assets/icon/left.png')} />
+
+    </TouchableOpacity>
+}
+centerComponent={
+    <Text style={{ width: '100%', color: Colors.dark_gry, fontSize:20, textAlign: 'center', marginTop: 5, marginLeft: -5, height: 40 }}>Forgot Password</Text>
+
+}
+
+/>
                         <View style={{alignItems:'center',justifyContent:'center',marginTop:5,flex:1}}>
                         <Image style={{ width: 220, height: 150, resizeMode:'cover', marginTop:15 }} source={require('../../../assets/appIcon2.jpg')} />
                       
@@ -106,7 +114,6 @@ alert('Please Enter Email Address ')
                         </View>
                         </View>
                       
-                        </View>
                     </SafeAreaView>
              
             </View>
@@ -124,7 +131,7 @@ const styles = StyleSheet.create({
     auth_textInput: {
 
         alignSelf: 'center',
-        width: '95%',
+        width: '80%',
         // borderWidth: 1,
         backgroundColor:Colors.gry_color,
   

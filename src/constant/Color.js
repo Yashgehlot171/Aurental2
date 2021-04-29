@@ -8,7 +8,7 @@ const dark_theme = {
        text_black:'#000',
        green_text:'#91B508',
        dark_green_text:'#009289',
-       gry_color:'#ddd',
+       gry_color:'#eee',
        dark_gry:'#8B9193',
     
     active_color:'#009289',

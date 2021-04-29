@@ -18,10 +18,12 @@
     "react-native-app-intro-slider": "^4.0.4",
     "react-native-calendar-picker": "^7.1.1",
     "react-native-check-box": "^2.1.7",
+    "react-native-datepicker": "^1.7.2",
     "react-native-device-info": "^8.1.0",
     "react-native-dropdown-picker": "^4.0.2",
     "react-native-elements": "^3.3.2",
     "react-native-gesture-handler": "^1.10.3",
+    "react-native-image-crop-picker": "^0.26.2",
     "react-native-linear-gradient": "^2.5.6",
     "react-native-multiple-select": "^0.5.6",
     "react-native-otp-textinput": "^0.0.8",
@@ -38,7 +40,8 @@
     "react-navigation": "^4.4.4",
     "react-navigation-drawer": "^2.7.0",
     "react-navigation-stack": "^2.10.4",
-    "react-navigation-tabs": "^2.6.0"
+    "react-navigation-tabs": "^2.6.0",
+    "react-native-webview": "^11.4.2"
   },
   "devDependencies": {
     "@babel/core": "^7.13.15",
