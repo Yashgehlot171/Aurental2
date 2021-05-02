@@ -60,7 +60,7 @@ export default class App extends Component {
 
                 </View>
              <TouchableOpacity 
-             onPress={()=>{this.props.navigation.navigate('')}}
+             onPress={()=>{this.props.navigation.navigate('ItemPickup')}}
              style={styles.button_Style}>
                  <Text style={{color:Colors.text_white,fontWeight:'bold',fontSize:16}}>View Task</Text>
              </TouchableOpacity>

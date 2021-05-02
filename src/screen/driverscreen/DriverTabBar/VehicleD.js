@@ -34,7 +34,7 @@ centerComponent={
 
 />
 <View style={{backgroundColor:'#000',width:'100%',height:0.5,marginVertical:5}}/>
-<TouchableOpacity onPress={() => this.props.navigation.navigate('MyVehicle')}>
+<TouchableOpacity onPress={() => this.props.navigation.navigate('VehicleDetails')}>
        <View style={{height:50, width:"85%", backgroundColor:"#f0eded", alignSelf:"center", marginTop:30,flexDirection:'row', justifyContent:'space-between'}}>
         <Text style={{fontSize:15, fontWeight:"700", marginTop:15, marginLeft:20,}}>My vehicle</Text>
 

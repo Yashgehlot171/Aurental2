@@ -9,12 +9,16 @@ import HistoryD from '../screen/driverscreen/DriverTabBar/HistoryD'
 import VehicleD from '../screen/driverscreen/DriverTabBar/VehicleD'
 import NotificationD from '../screen/driverscreen/DriverTabBar/NotificationD'
 import MoreD from '../screen/driverscreen/DriverTabBar/MoreD'
-import SpecialDeal from '../screen/customerscreen/TabScreen/SpecialDeal'
+import ItemPickup from '../screen/driverscreen/DriverTabBar/ItemPickup'
 import MyVehicle from '../screen/driverscreen/DriverTabBar/MyVehicle';
 import RequestVehicle from '../screen/driverscreen/DriverTabBar/RequestVehicle';
 import RequestSubmit from '../screen/driverscreen/DriverTabBar/RequestSubmit';
 import Accident from '../screen/driverscreen/DriverTabBar/Accident';
 import ServiceBooking from '../screen/driverscreen/DriverTabBar/ServiceBooking';
+import VehicleDetails from '../screen/driverscreen/DriverTabBar/VehicleDetails';
+import Wallet from '../screen/driverscreen/DriverTabBar/Wallet';
+import Transaction from '../screen/driverscreen/DriverTabBar/Transaction'
+import CourierDetail from '../screen/driverscreen/DriverTabBar/CourierDetail'
 import ScheduleDelivery from '../screen/customerscreen/TabScreen/ScheduleDelivery';
 import RateDelivery from '../screen/customerscreen/TabScreen/RateDelivery';
 import DeliveryContact from '../screen/customerscreen/TabScreen/DeliveryContact';
@@ -82,12 +86,12 @@ const HomeDStack = createStackNavigator(
                 header: null,
             })
         },
-    //     SpecialDeal: {
-    //         screen: SpecialDeal,
-    //         navigationOptions: ({ navigation }) => ({
-    //             header: null,
-    //         })
-    //     },
+        ItemPickup: {
+            screen: ItemPickup,
+            navigationOptions: ({ navigation }) => ({
+                header: null,
+            })
+        },
     //     ScheduleDelivery: {
     //         screen: ScheduleDelivery,
     //         navigationOptions: ({ navigation }) => ({
@@ -186,7 +190,13 @@ const VehicleDStack = createStackNavigator(
                 header: null,
             })
         },
-     
+        VehicleDetails: {
+            screen: VehicleDetails,
+            navigationOptions: ({ navigation }) => ({
+                header: null,
+            })
+        },
+         
     }, {
     initialRouteName: 'VehicleD'
 }
@@ -214,6 +224,25 @@ const MoreDStack = createStackNavigator(
             })
         },
 
+        Wallet: {
+            screen: Wallet,
+            navigationOptions: ({ navigation }) => ({
+                header: null
+            })
+        },
+        Transaction: {
+            screen: Transaction,
+            navigationOptions: ({ navigation }) => ({
+                header: null
+            })
+        },
+        CourierDetail: {
+            screen: CourierDetail,
+            navigationOptions: ({ navigation }) => ({
+                header: null
+            })
+        },
+         
     }, {
     initialRouteName: 'MoreD'
 }

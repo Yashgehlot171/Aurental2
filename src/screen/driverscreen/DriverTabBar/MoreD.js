@@ -1,54 +1,70 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {
   View,
   Text,
   Image,
   TouchableOpacity,
+  StyleSheet,
+  FlatList,
+  ScrollView
 } from 'react-native';
-import Colors from '../../../constant/Color';
-import { Header, Icon, Avatar } from 'react-native-elements';
-export default class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            email: '',
-            password: '',
-            showpassword: true
-        }
-    }
 
-    render() {
-        return (
-   <View style={{flex:1,backgroundColor:'#fff'  }}>
-         {/* <Header
+export default class LogoutScreen extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [
+        { id:1, 
+          ID: "Delivery ID : 1234567890",
+          Name:"Sender Name",
+          date:"01-01-2021",
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie massa sit amet condimentum interdum. Donec sit amet mauris nibh", 
+        }, 
+        { id:2, 
+          ID: "Delivery ID : 1234567890",
+          Name:"Sender Name",
+          date:"01-01-2021",
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie massa sit amet condimentum interdum. Donec sit amet mauris nibh", 
+        },
+        { id:3, 
+          ID: "Delivery ID : 1234567890",
+          Name:"Sender Name",
+          date:"01-01-2021",
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie massa sit amet condimentum interdum. Donec sit amet mauris nibh", 
+        },
+        { id:4, 
+          ID: "Delivery ID : 1234567890",
+          Name:"Sender Name",
+          date:"01-01-2021",
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie massa sit amet condimentum interdum. Donec sit amet mauris nibh", 
+        },
+        { id:5, 
+          ID: "Delivery ID : 1234567890",
+          Name:"Sender Name",
+          date:"01-01-2021",
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie massa sit amet condimentum interdum. Donec sit amet mauris nibh", 
+        },
+        { id:6, 
+          ID: "Delivery ID : 1234567890",
+          Name:"Sender Name",
+          date:"01-01-2021",
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie massa sit amet condimentum interdum. Donec sit amet mauris nibh", 
+        },
+      ],
+    };
+  }
 
-statusBarProps={{ barStyle: 'dark-content' }}
-height={85}
-containerStyle={{ elevation: 0, justifyContent: 'center', borderBottomWidth: 0 }}
-backgroundColor={Colors.text_white}
-placement={"left"}
-leftComponent={
-    <TouchableOpacity style={{ alignSelf: 'center', justifyContent: 'center', height: 25 }} onPress={() => this.props.navigation.goBack()}>
-        <Image style={{ width: 25, height: 25, tintColor: '#000', marginLeft: 10, marginTop: 5, resizeMode: 'contain' }} source={require('../../../../assets/icon/left.png')} />
-
-    </TouchableOpacity>
-}
-centerComponent={
-    <Text style={{ width: '100%', color: Colors.dark_gry, fontSize:20, textAlign: 'center', marginTop: 5, marginLeft: -5, height: 40 }}>Booking</Text>
-
-}
-
-/>
-<View style={{backgroundColor:'#000',width:'100%',height:0.5,marginVertical:10}}/> */}
-
-        <View style={{flex:1, alignItems:"center", justifyContent:'center' }}>
-     
+  render() {
+  return (
+    <ScrollView> 
+   <View style={{flex:1,}}>
      <Image
-        style={{height:70, width:70, alignSelf:"center", marginTop:45, marginBottom:15,borderRadius:35}}
-        source={require('../../../../assets/car1.png')}
+        style={{height:70, width:70, alignSelf:"center", marginTop:45, marginBottom:15}}
+        source={require('../../../../assets/icon/submitted.png')}
       />
       <Text style={{textAlign:"center", fontSize:17, color:"gray", marginBottom:25}}>Driver Name</Text>
-      <View style={{backgroundColor:"#f0eded", height:"30%", width:"75%", marginTop:5, alignItems:"center", marginBottom:60}}>
+      <View style={{alignItems:"center", flex:1}}> 
+      <View style={{backgroundColor:"#f0eded", height:200, width:"75%", marginTop:5, alignItems:"center", marginBottom:60}}>
         <View style={{flexDirection:"row", marginTop:25}}>
           <Text style={{}}>E-mail Address</Text>
           <Text style={{marginLeft:35, color:"gray"}}>E-mail Address</Text>
@@ -68,19 +84,78 @@ centerComponent={
           <Text style={{alignSelf:"flex-start"}}>Company</Text>
           <Text style={{marginLeft:35, color:"gray"}}>Company</Text>
         </View>
+
         <TouchableOpacity>
         <Text style={{marginTop:20}}>Edit Profile</Text>
-      </TouchableOpacity>
-      <View style={{height:1, backgroundColor:"gray", width:70}}></View>
+       </TouchableOpacity>
+
+       <View style={{height:1, backgroundColor:"gray", width:70}}></View>
       </View>
-      <TouchableOpacity 
-      onPress={()=>{this.props.navigation.navigate('ChooseRole')}}
-      style={{height:45, }}>
-        <Text style={{textAlign:"center", marginTop:14,color:'red'}}>Log Out</Text>
+      </View>
+
+      <TouchableOpacity
+      onPress={()=>{this.props.navigation.navigate('Wallet')}}>
+        <Text style={{textAlign:"center", color:"red"}}>Wallet</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity>
+        <Text style={{textAlign:"center", color:"red"}}>Sign Out</Text>
+      </TouchableOpacity>
+      <View style={{height:1, backgroundColor:"red", width:60, alignSelf:"center"}}></View>
+     
+      <Text style={{fontSize:15, color:"gray", marginLeft:15}}>Rating</Text>
+      <FlatList 
+          style={styles.notificationList} 
+          enableEmptySections={true}
+          data={this.state.data}
+          keyExtractor= {(item) => {
+            return item.id;
+          }}
+          renderItem={({item}) => {
+            return (
+              <View style={styles.notificationBox}>
+                <Text style={styles.time}>{item.ID}</Text>
+                <View style={{flexDirection:"row", justifyContent:"space-between"}}>
+                <Text style={styles.time}>{item.Name}</Text>
+                <Text style={styles.time}>{item.date}</Text>
+                </View>
+                <Text style={styles.description}>{item.description}</Text>
+              </View>
+            )}}/>
    </View> 
-   </View>
+   </ScrollView>
   );
+  }
 };
 
-}
+const styles = StyleSheet.create({
+  container:{
+    // backgroundColor:'#DCDCDC'
+  },
+  notificationList:{
+    // marginTop:20,
+    padding:10,
+  },
+  notificationBox: {
+    padding:20,
+    // marginTop:5,
+    marginBottom:5,
+    backgroundColor: '#f0eded',
+    // flexDirection: 'row',
+    borderRadius:10,
+  },
+  icon:{
+    width:45,
+    height:45,
+  },
+  description:{
+    fontSize:13,
+    // color: "#3498db",
+    // marginLeft:10,
+  },
+  time:{
+    fontSize:10,
+    color:"gray"
+  }
+});
+
