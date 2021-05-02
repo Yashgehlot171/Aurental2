@@ -86,17 +86,17 @@ export default class App extends Component {
     })
     .then((response) => response.json())
     .then((responseJson) => {
-        console.log("jso22222222222YASH",responseJson );
+        console.log("jso22222222222YASHpp",responseJson );
         let status = responseJson.status
-        console.log('status',status)
+        console.log('status>>>>>',status)
         this.setState({status:status})
         if(responseJson.status===1){
             let user_info = responseJson.results
             let status = responseJson.status
-            console.log('status',status)
+            console.log('status>>>>>',status)
             // let user_token = responseJson.token
             // AsyncStorage.setItem('user_token', user_info)
-            console.log('dfd',user_info)
+            console.log('dfd>>>>>',user_info)
             this.setState({order_history:user_info})
             // // this.props.navigation.navigate('CustomerLogin')
             // console.log('data111',this.state.user_data)
@@ -105,7 +105,7 @@ export default class App extends Component {
     .catch((error) => {
       
     //   this.setState({ isLoading: false })
-      console.error(error);
+      console.error("eeeee",error);
     });
   };
     updateIndex(selectedIndex) {
