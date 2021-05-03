@@ -28,7 +28,7 @@ leftComponent={
     </TouchableOpacity>
 }
 centerComponent={
-    <Text style={{ width: '100%', color: Colors.dark_gry, fontSize:20, textAlign: 'center', marginTop: 5, marginLeft: -7, height: 40 }}>Wallet</Text>
+    <Text style={{ width: '100%', fontSize:20, textAlign: 'center', marginTop: 5, marginLeft: -7, height: 40, fontWeight:"bold" }}>Wallet</Text>
 
 }
 
@@ -39,7 +39,7 @@ centerComponent={
             </View>
 
             <View style={{flexDirection:"row", justifyContent:"space-around", marginBottom:5}}>
-              <View style={{height:80, width:"23%", borderColor:"red", borderWidth:1, borderRadius:5, justifyContent:"center"}}>
+              <View style={{height:80, width:"23%", borderColor:"grey", borderWidth:1, borderRadius:5, justifyContent:"center"}}>
                   <TouchableOpacity
                   onPress={()=>{this.props.navigation.navigate('Transaction')}}>
                    <Image
@@ -49,7 +49,7 @@ centerComponent={
                </TouchableOpacity>
               </View>
               
-              <View style={{height:80, width:"23%", borderColor:"red", borderWidth:1, borderRadius:5, justifyContent:"center"}}>
+              <View style={{height:80, width:"23%", borderColor:"grey", borderWidth:1, borderRadius:5, justifyContent:"center"}}>
                   <TouchableOpacity
                   onPress={()=>{this.props.navigation.navigate('')}}>
                    <Image
@@ -59,7 +59,7 @@ centerComponent={
                </TouchableOpacity>
               </View>
 
-              <View style={{height:80, width:"23%", borderColor:"red", borderWidth:1, borderRadius:5, justifyContent:"center"}}>
+              <View style={{height:80, width:"23%", borderColor:"grey", borderWidth:1, borderRadius:5, justifyContent:"center"}}>
                   <TouchableOpacity
                   onPress={()=>{this.props.navigation.navigate('')}}>
                    <Image
@@ -71,7 +71,7 @@ centerComponent={
             </View>
 
             <View style={{flexDirection:"row", justifyContent:"space-around", marginBottom:25}}>
-            <Text style={{ }}>Transaction</Text>
+            <Text style={{marginLeft:-9 }}>Transaction</Text>
             <Text style={{ }}>Statics</Text>
             <Text style={{ }}>Cash Out</Text>
             </View>
@@ -79,19 +79,23 @@ centerComponent={
             <Text style={{marginLeft:15, marginBottom:10 }}>Bank Info</Text>
 
             <ScrollView  horizontal={true}>   
-                <View style={[{ width:330,height: 170,padding: 10,  borderColor:"red", marginLeft:15, borderRadius:10, borderWidth:1 }]}>  
+                <View style={[{ width:330,height: 170,padding: 10, marginLeft:15, borderRadius:10, backgroundColor: Colors.introButton }]}>  
                     <View style={{flexDirection:"row", justifyContent:"space-between", marginBottom:10}}>
-                        <Text style={{fontWeight:"bold"}}>Mohamed Salah</Text>
+                        <Text style={{fontWeight:"bold", color:"white", fontSize:20}}>Mohamed Salah</Text>
                         <Image
                          style={{height:20, width:20,}}
                          source={require('../../../../assets/icon/Rightarrow.png')}
                         />
                     </View>
-                    <Text style={{marginBottom:3}}>+65 8960 6085</Text>
-                    <Text style={{}}>MohamedSalah@gmail.com</Text>
+                    <Text style={{marginBottom:3, color:"white"}}>+65 8960 6085</Text>
+                    <Text style={{ color:"white", marginBottom:20}}>MohamedSalah@gmail.com</Text>
+                    <View style={{flexDirection:"row"}}>
+                      <View style={{height:50, width:80, borderWidth:1, borderColor:"white", borderRadius:5}}></View>
+                      <Text style={{ color:"white", marginBottom:20, marginTop:25, marginLeft:5}}>Visa *******4523</Text>
+                    </View>
                 </View>  
 
-                <View style={[{ width:330,height: 170,padding: 10, marginLeft:15, borderRadius:10, marginRight:15, borderColor:"red", borderWidth:1, justifyContent:"center"}]}>  
+                <View style={[{ width:330,height: 170,padding: 10, marginLeft:15, borderRadius:10, marginRight:15, borderColor:"grey", borderWidth:1, justifyContent:"center"}]}>  
                      <Text style={{textAlign:"center", }}>+ ADD New Bank Account</Text>
                 </View> 
             </ScrollView> 

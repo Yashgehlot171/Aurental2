@@ -8,6 +8,7 @@ import Colors from '../../constant/Color';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Header, Icon, Avatar } from 'react-native-elements';
 import Loader from '../../../Loader/index';
+import CheckBox from 'react-native-check-box';
 export default class App extends Component {
     constructor(props) {
         super(props);
@@ -238,26 +239,126 @@ centerComponent={
                                     placeholder="Name"
                                     placeholderTextColor={Colors.dark_gry}
                                     autoCapitalize='none' />
-                                                              <TextInput
+                                 <TextInput
                                     style={[styles.auth_textInput,]}
                                     onChangeText={(address) => this.setState({ address })}
                                     value={this.state.address}
                                     placeholder="Address"
                                     placeholderTextColor={Colors.dark_gry}
                                     autoCapitalize='none' />
-                                                              <TextInput
+                                <TextInput
                                     style={[styles.auth_textInput,]}
                                     onChangeText={(optionaladdress) => this.setState({ optionaladdress })}
                                     value={this.state.optionaladdress}
                                     placeholder="Optional Address"
                                     placeholderTextColor={Colors.dark_gry}
                                     autoCapitalize='none' />
-                        
+                                    <TextInput
+                                    style={[styles.auth_textInput,]}
+                                    onChangeText={(optionaladdress) => this.setState({ optionaladdress })}
+                                    value={this.state.optionaladdress}
+                                    placeholder="Mobile Number"
+                                    keyboardType="phone-pad"
+                                    placeholderTextColor={Colors.dark_gry}
+                                    autoCapitalize='none'/>
+                                    <TextInput
+                                    style={[styles.auth_textInput,]}
+                                    onChangeText={(optionaladdress) => this.setState({ optionaladdress })}
+                                    value={this.state.optionaladdress}
+                                    placeholder="Company"
+                                    placeholderTextColor={Colors.dark_gry}
+                                    autoCapitalize='none'/>
+
+                                <View style={{alignSelf: 'center', width: '80%', backgroundColor:Colors.gry_color, color: Colors.dark_gry, marginTop: 40,paddingLeft:10}}>
+                                    <Text style={{fontSize:20}}>Identify Document</Text>
+                                    <Text style={{color:"grey"}}>Take a photo on you document to verify your identity</Text>
+                                    <TouchableOpacity style={styles.button_Style}
+                                      onPress={() => { this.props.navigation.navigate('') }}>
+                                      <Text style={{ fontSize:16, color: Colors.introButtonLabel }}>Photo Document </Text>
+                                    </TouchableOpacity>
+                                </View>
+
+                                <Text style={{ fontSize:16, color: Colors.dark_gry,fontWeight:'bold' ,textAlign:'left',alignSelf:'flex-start',padding:7, marginTop:20}}>Work Details</Text>
+                                
+                                <TextInput
+                                    style={[styles.auth_textInput,]}
+                                    onChangeText={(optionaladdress) => this.setState({ optionaladdress })}
+                                    value={this.state.optionaladdress}
+                                    placeholder="Working days"
+                                    keyboardType="phone-pad"
+                                    placeholderTextColor={Colors.dark_gry}
+                                    autoCapitalize='none'/>
+
+                                    <View style={{flexDirection:"row", justifyContent:"space-evenly", width:"100%"}}>
+                                    <TextInput
+                                    style={{alignSelf: 'center',
+                                    width: '46%',
+                                    // borderWidth: 1,
+                                    backgroundColor:Colors.gry_color,
+                              
+                                    borderBottomWidth: 0,
+                                    height: 45,
+                                    color: Colors.dark_gry,
+                                    marginTop: 10,paddingLeft:10, marginLeft:-5}}
+                                    onChangeText={(optionaladdress) => this.setState({ optionaladdress })}
+                                    value={this.state.optionaladdress}
+                                    placeholder="Start Time"
+                                    keyboardType="phone-pad"
+                                    placeholderTextColor={Colors.dark_gry}
+                                    autoCapitalize='none'/>
+
+                                   <TextInput
+                                    style={{alignSelf: 'center',
+                                    width: '46%',
+                                    // borderWidth: 1,
+                                    backgroundColor:Colors.gry_color,
+                              
+                                    borderBottomWidth: 0,
+                                    height: 45,
+                                    color: Colors.dark_gry,
+                                    marginTop: 10,paddingLeft:10, marginRight:-5}}
+                                    onChangeText={(optionaladdress) => this.setState({ optionaladdress })}
+                                    value={this.state.optionaladdress}
+                                    placeholder="End Time"
+                                    keyboardType="phone-pad"
+                                    placeholderTextColor={Colors.dark_gry}
+                                    autoCapitalize='none'/>
+                                    </View>
+
+
+                                    <TextInput
+                                    style={[styles.auth_textInput,]}
+                                    onChangeText={(optionaladdress) => this.setState({ optionaladdress })}
+                                    value={this.state.optionaladdress}
+                                    placeholder="Start Location"
+                                    placeholderTextColor={Colors.dark_gry}
+                                    autoCapitalize='none'/>
+
+                                  <TextInput
+                                    style={[styles.auth_textInput,]}
+                                    onChangeText={(optionaladdress) => this.setState({ optionaladdress })}
+                                    value={this.state.optionaladdress}
+                                    placeholder="End Location"
+                                    placeholderTextColor={Colors.dark_gry}
+                                    autoCapitalize='none'/>
+                                     
+                                     <View style={{flexDirection:"row", justifyContent:"space-evenly", width:"100%"}}>
+                                     <CheckBox
+                                     style={{marginLeft:10}}
+                                       isChecked={this.state.termsCheck}
+                                      onClick={() => {
+                                        this.setState({termsCheck: !this.state.termsCheck});
+                                           }}
+                                          />
+                                    <Text style={{color:"grey", paddingLeft:15}}>By proceeding, I agree that Aurental can collet, use, and disclose 
+                                         the informationprovided by me in accordance with the Privacy 
+                                         Policy and I fully comply with Terms & Conditions which I have 
+                                         read and understand.</Text>
+                                     </View>
+                                     
                         <View style={{alignItems:'center',marginTop:10}}>
                         <TouchableOpacity style={styles.button_Style}
-       onPress={() => { this.props.navigation.navigate('DriverApp')
-            // this.validation()
-         }}
+                           onPress={() => { this.props.navigation.navigate('DriverApp') }}
                             >
                                 <Text style={{ fontSize:16, color: Colors.introButtonLabel }}>Sign Up </Text>
                             </TouchableOpacity>
@@ -283,7 +384,7 @@ centerComponent={
                         </View>
                         <View style={{justifyContent:'flex-end',alignItems:'center'}}>
                            <TouchableOpacity onPress={()=>{this.props.navigation.navigate('CustomerLogin')}}>
-                            <Text style={{fontSize:16,color:Colors.dark_gry}}>I have an account?<Text  style={{fontSize:16,color:Colors.introButton}}> Sign In.</Text> </Text></TouchableOpacity>
+                            <Text style={{fontSize:16,color:Colors.dark_gry}}>I have an account?<Text  style={{fontSize:16,color:Colors.introButton}}> Log In.</Text> </Text></TouchableOpacity>
                         </View>
                         </ScrollView>
                         </View>

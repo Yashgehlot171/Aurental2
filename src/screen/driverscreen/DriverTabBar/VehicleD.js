@@ -11,28 +11,32 @@ import {
 import Colors from '../../../constant/Color';
 import { Header, Icon, Avatar } from 'react-native-elements';
 export default class screenD11 extends Component {
-    render() {
+   render() {
   return (
     <View style={{flex:1, backgroundColor:"white",}}> 
-               <Header
+      <Header
+        statusBarProps={{ barStyle: 'dark-content' }}
+        height={85}
+        containerStyle={{ elevation: 0, justifyContent: 'center', borderBottomWidth: 0 }}
+        backgroundColor={Colors.text_white}
+        placement={"left"}
+         leftComponent={
+           <TouchableOpacity style={{ alignSelf: 'center', justifyContent: 'center', height: 25 }} onPress={() => this.props.navigation.goBack()}>
+              <Image style={{ width: 25, height: 25, tintColor: '#000', marginLeft: 10, marginTop: 5, resizeMode: 'contain' }} source={require('../../../../assets/icon/left.png')} />
+            </TouchableOpacity>
+           }
+         centerComponent={
+           <Text style={{ width: '100%', fontSize:20, textAlign: 'center', marginTop: 5, height: 40, fontWeight:"700" }}>Vehicle</Text>
 
-statusBarProps={{ barStyle: 'dark-content' }}
-height={85}
-containerStyle={{ elevation: 0, justifyContent: 'center', borderBottomWidth: 0 }}
-backgroundColor={Colors.text_white}
-placement={"left"}
-leftComponent={
-    <TouchableOpacity style={{ alignSelf: 'center', justifyContent: 'center', height: 25 }} onPress={() => this.props.navigation.goBack()}>
-        <Image style={{ width: 25, height: 25, tintColor: '#000', marginLeft: 10, marginTop: 5, resizeMode: 'contain' }} source={require('../../../../assets/icon/left.png')} />
+         }
+         rightComponent={
+            <TouchableOpacity style={{ alignSelf: 'center', justifyContent: 'center', height: 25 }} onPress={() => this.props.navigation.navigate('')}>
+                <Image style={{ width: 25, height: 25, tintColor: '#000', marginRight: 10, marginTop: 5, resizeMode: "contain" }} source={require('../../../../assets/icon/gps-black.png')} />
 
-    </TouchableOpacity>
-}
-centerComponent={
-    <Text style={{ width: '100%', color: Colors.dark_gry, fontSize:20, textAlign: 'center', marginTop: 5, marginLeft: -7, height: 40 }}>Vehicle</Text>
+            </TouchableOpacity>
+        }
 
-}
-
-/>
+      />
 <View style={{backgroundColor:'#000',width:'100%',height:0.5,marginVertical:5}}/>
 <TouchableOpacity onPress={() => this.props.navigation.navigate('VehicleDetails')}>
        <View style={{height:50, width:"85%", backgroundColor:"#f0eded", alignSelf:"center", marginTop:30,flexDirection:'row', justifyContent:'space-between'}}>

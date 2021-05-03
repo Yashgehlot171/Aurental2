@@ -13,7 +13,7 @@ import { Header, Icon, Avatar } from 'react-native-elements';
 const screenD18 = () => {
   const [selectedValue, setSelectedValue] = useState("java");
   return (
-    <View style={{flex:1,}}> 
+    <View style={{flex:1, backgroundColor:"white"}}> 
                  <Header
 
 statusBarProps={{ barStyle: 'dark-content' }}
@@ -50,12 +50,17 @@ centerComponent={
         style={{height: 100, backgroundColor:"#f0eded", width:"85%", alignSelf:"center", marginBottom:20}}
         placeholder="Description"
       />
+     <View style={{height: 40, backgroundColor:"#f0eded", width:"85%", alignSelf:"center", marginBottom:20, flexDirection:"row",justifyContent:"space-between"}}>
+        <TextInput
+          // style={{height: 40, backgroundColor:"#f0eded", width:"85%", alignSelf:"center", marginBottom:20}}
+          placeholder="Vehicle Location"
+       />
 
-     <TextInput
-        style={{height: 40, backgroundColor:"#f0eded", width:"85%", alignSelf:"center", marginBottom:20}}
-        placeholder="Vehicle Location"
-      />
-
+        <Image style={{ width: 25, height: 25, tintColor: '#000', marginRight: 10, marginTop: 5, resizeMode: "contain" }} 
+          source={require('../../../../assets/icon/gps-black.png')}
+         />
+     </View>
+      
      <Text style={{fontSize:15, marginBottom:3, marginLeft:25, color:"grey", fontWeight:"700"}}>Vehicle Detail</Text>
      <View style={{height:70, borderColor:"gray", width:70, marginBottom:75, borderWidth:1, marginLeft:29, marginBottom:50}}>
         <Text style={{fontSize:20, textAlign:"center", marginTop:20}}>+</Text>
@@ -64,6 +69,7 @@ centerComponent={
       <TouchableOpacity style={{height:"5%", width:"75%", borderRadius:5, alignSelf:"center", backgroundColor:"green", marginTop:100 }}>
       <Text style={{textAlign:"center", marginTop:10, color:"white",  }}>Send Notification to Admin</Text>
     </TouchableOpacity>
+
     </View>
   );
 };
