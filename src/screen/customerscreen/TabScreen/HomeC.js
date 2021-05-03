@@ -2,9 +2,9 @@
 import React, { Component } from 'react'
 import { TouchableOpacity, TextInput, ScrollViewBase } from 'react-native';
 import { SafeAreaView } from 'react-native';
-import { Platform, StyleSheet, StatusBar, Text, View, Alert, ImageBackground, Image, AsyncStorage, ActivityIndicator } from 'react-native';
+import { Platform, StyleSheet, StatusBar, Text, View, Alert, ImageBackground, Image,  ActivityIndicator } from 'react-native';
 import Colors from '../../../constant/Color';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Header, Icon, Avatar } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
 export default class App extends Component {
@@ -17,6 +17,40 @@ export default class App extends Component {
         }
     }
 
+    callLogout = () => {
+        // var params = {
+        //   token: this.props.user.token,
+        //   onDone: (response) => {
+        //     this.hideLoader();
+        //     console.log(response);
+        //     if (response.status == 200) {
+        //       AsyncStorage.clear();
+              
+        //       global.globalvariable='customer'
+        //       this.props.navigation.navigate('Auth');
+        //     } else {
+    
+        //     }
+        //   }
+        // }
+    
+        Alert.alert(
+          'Logout',
+          'Are you sure you want to logout?',
+          [
+            { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+            {
+              text: 'OK', onPress: () => {
+                // this.showLoader();
+                // this.props.logout(params);
+                this.props.navigation.navigate('ChooseRole')
+                AsyncStorage.clear();
+              }
+            },
+          ],
+          { cancelable: false }
+        )
+      }
     render() {
         return (
             <View style={styles.container}>
@@ -42,8 +76,8 @@ export default class App extends Component {
                         <Image style={{ width:'100%', height: 30, resizeMode:'contain', }} source={require('../../../../assets/logo.jpg')} />
                     }
                     rightComponent={
-                        <TouchableOpacity style={{ alignSelf: 'center', justifyContent: 'center', height: 25 }} onPress={() => this.props.navigation.navigate('')}>
-                            <Image style={{ width: 30, height: 30, tintColor: '#000', marginRight: 10, marginTop: 5, resizeMode: 'contain' }} source={require('../../../../assets/icon/notification.png')} />
+                        <TouchableOpacity style={{ alignSelf: 'center', justifyContent: 'center', height: 25 }} onPress={() =>{this.callLogout();}}>
+                            <Image style={{ width: 30, height: 30, tintColor: '#000', marginRight: 10, marginTop: 5, resizeMode: 'contain' }} source={require('../../../../assets/logout.png')} />
 
                         </TouchableOpacity>
                     }

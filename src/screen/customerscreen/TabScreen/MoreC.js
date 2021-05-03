@@ -3,7 +3,7 @@ import {
   View,
   Text,
   Image,
-  TouchableOpacity,Modal,StatusBar,
+  TouchableOpacity,Modal,StatusBar,Alert
 } from 'react-native';
 import Colors from '../../../constant/Color';
 import { Header, Icon, Avatar } from 'react-native-elements';
@@ -20,7 +20,7 @@ export default class App extends Component {
             user_data:[],isLoading: false
         }
     }
-    componentWillMount = async () => {
+    componentDidMount = async () => {
       var value = await AsyncStorage.getItem('user_token');
       // const data = await this.performTimeConsumingTask();
       // if (data !== null) {
@@ -29,6 +29,40 @@ export default class App extends Component {
       // }
     }
 
+    callLogout = () => {
+      // var params = {
+      //   token: this.props.user.token,
+      //   onDone: (response) => {
+      //     this.hideLoader();
+      //     console.log(response);
+      //     if (response.status == 200) {
+      //       AsyncStorage.clear();
+            
+      //       global.globalvariable='customer'
+      //       this.props.navigation.navigate('Auth');
+      //     } else {
+  
+      //     }
+      //   }
+      // }
+  
+      Alert.alert(
+        'Logout',
+        'Are you sure you want to logout?',
+        [
+          { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+          {
+            text: 'OK', onPress: () => {
+              // this.showLoader();
+              // this.props.logout(params);
+              this.props.navigation.navigate('ChooseRole')
+              AsyncStorage.clear();
+            }
+          },
+        ],
+        { cancelable: false }
+      )
+    }
 
  getDataUsingPost = (value) => {
   //POST json
@@ -146,7 +180,7 @@ centerComponent={
       </TouchableOpacity>
 
 <TouchableOpacity 
-      onPress={()=>{this.props.navigation.navigate('ChooseRole')}}
+      onPress={()=>{this.callLogout();}}
       style={{height:45, width:"75%", borderColor:"gray", borderWidth:1, borderRadius:5,marginTop:10,marginBottom:5 }}>
         <Text style={{textAlign:"center", marginTop:14,fontWeight:'bold'}}>Log Out</Text>
       </TouchableOpacity>

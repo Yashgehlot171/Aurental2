@@ -13,7 +13,7 @@ const screenD15 = ( { navigation} ) => {
 
   const [selectedValue, setSelectedValue] = useState("java");
   return (
-    <View style={{flex:1,}}> 
+    <View style={{flex:1,backgroundColor:'#fff'}}> 
             <Header
 
 statusBarProps={{ barStyle: 'dark-content' }}

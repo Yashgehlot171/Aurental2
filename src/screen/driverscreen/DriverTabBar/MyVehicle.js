@@ -38,7 +38,7 @@ centerComponent={
 
 />
 <View style={{backgroundColor:'#000',width:'100%',height:0.5,marginVertical:5}}/>
-<ScrollView> 
+<ScrollView style ={{backgroundColor:'#fff'}}> 
       <Text style={{color:"grey", textAlign:"center", fontSize:15, marginTop:30, marginBottom:30}}>Are you a driver with no vehicle</Text>
       
       <TouchableOpacity style={{height:40, width:"75%", marginBottom:50, borderRadius:5, alignSelf:"center", backgroundColor:"#87CEEB" }}

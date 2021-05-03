@@ -13,7 +13,7 @@ import { Header, Icon, Avatar } from 'react-native-elements';
 const screenD19 = () => {
   const [selectedValue, setSelectedValue] = useState("java");
   return (
-    <View style={{flex:1,}}> 
+    <View style={{flex:1,backgroundColor:'#fff'}}> 
       <View  style={{height:40,width:"85%", alignSelf:"center", backgroundColor:"#f0eded", marginBottom:35, marginTop:30}}>
         <Picker style={{color:'#6D6B6B', height: 45, width: "100%"}}  
           selectedValue={selectedValue}

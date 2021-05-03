@@ -16,9 +16,7 @@ export default class App extends Component {
             email: '',
             password: '',
             showpassword: true, isLoading: false,
-            Data: [
-
-            ],
+            Data:[2],
 
         }
     }

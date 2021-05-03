@@ -2,12 +2,14 @@
 import React, { Component } from 'react'
 import { TouchableOpacity, TextInput, ScrollViewBase } from 'react-native';
 import { SafeAreaView } from 'react-native';
-import { Platform, StyleSheet, StatusBar, Text, View, Alert, ImageBackground, Image, FlatList } from 'react-native';
+import { Platform, StyleSheet, StatusBar, Text, View, Alert, ImageBackground, Image, FlatList ,Modal} from 'react-native';
 import Colors from '../../../constant/Color';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Header, Icon, Avatar } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
 import { ButtonGroup } from 'react-native-elements';
+import Loader from '../../../../Loader/index';
+
 export default class App extends Component {
     constructor(props) {
         super(props);
@@ -20,7 +22,8 @@ export default class App extends Component {
             JobType: '',
             selectedStartDate: null,
             order_history:[],
-            status:'',
+            onGoingData:[],
+            status:'',isLoading: false,
             Data: [
                 {
                     headingText: 'Rent Commercial Vans & Lorries with Vibrance',
@@ -62,31 +65,61 @@ export default class App extends Component {
         // const data = await this.performTimeConsumingTask();
         // if (data !== null) {
           console.log('token',value)
+          this.onGoingOrder(value);
           this.getDataUsingPost(value);
+
         // }
       }
   
+      onGoingOrder = (value) => {
+        this.setState({ isLoading: true })
+        fetch('http://ec2-54-251-142-179.ap-southeast-1.compute.amazonaws.com:6060/api/v1/aurental/order_list', {
+          method: "POST",
+          headers: {"Content-type": "application/json; charset=UTF-8",
+          Authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl9pZCI6NCwidHlwZSI6InVzZXIiLCJpYXQiOjE2MTY3MzcxMTd9.wJZqjvErujeVoeCRU4bdOhPcVvN8Ik7MDDgm54HSWcM"
+        }
+        })
+        .then((response) => response.json())
+        .then((responseJson) => {
+            this.setState({ isLoading: false })
+            console.log("RESPOSE",responseJson );
+            let status = responseJson.status
+            console.log('status',status)
+            this.setState({status:status})
+            if(responseJson.status===1){
+                let user_info = responseJson.results
+                let status = responseJson.status
+                console.log('status',status)
+                // let user_token = responseJson.token
+                // AsyncStorage.setItem('user_token', user_info)
+                console.log('dfd',user_info)
+                this.setState({onGoingData:user_info})
+             
+            }
+        })
+        .catch((error) => {
+          
+          this.setState({ isLoading: false })
+          console.error(error);
+        });
+      };
   
    getDataUsingPost = (value) => {
     //POST json
     // let _data = { device_id: 'dwscngkdddnn44ffff', device_name:brand ,app_type: 2 ,push_token:'sjdsfbkkasbdbd' }
-    
-    fetch('http://ec2-54-251-142-179.ap-southeast-1.compute.amazonaws.com:6060/api/v1/aurental/aurental/order_list_histoy', {
+    this.setState({ isLoading: true })
+    fetch('http://ec2-54-251-142-179.ap-southeast-1.compute.amazonaws.com:6060/api/v1/aurental/order_list_histoy', {
       method: "POST",
       // body: JSON.stringify(_data),
       // 'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl9pZCI6OSwidHlwZSI6ImRldmljZSIsImlhdCI6MTYxODk3NzM0M30.FZB3CfNkAR4CYOUD6H54Ml0DvAAUGTKq7R_8fLUbdOM',
       headers: {"Content-type": "application/json; charset=UTF-8",
       Authorization:value
     }
-      // headers: {
-      //   'Authorization': 'Bearer ' + user_token,
-      //   Accept: 'application/json',
-      //   'Content-Type': 'application/json'
-      // },
     })
     .then((response) => response.json())
     .then((responseJson) => {
-        console.log("jso22222222222YASHpp",responseJson );
+        this.setState({ isLoading: false })
+        console.log("jso22222222222YASH",responseJson );
         let status = responseJson.status
         console.log('status>>>>>',status)
         this.setState({status:status})
@@ -104,8 +137,8 @@ export default class App extends Component {
     })
     .catch((error) => {
       
-    //   this.setState({ isLoading: false })
-      console.error("eeeee",error);
+      this.setState({ isLoading: false })
+      console.error(error);
     });
   };
     updateIndex(selectedIndex) {
@@ -125,17 +158,17 @@ export default class App extends Component {
     renderOngoing = ({ item, index }) => (
         <View style={{ margin: 5,marginHorizontal:10, flex: 1,backgroundColor:Colors.gry_color ,padding:15}}>
      
-     <TouchableOpacity onPress ={()=>{this.props.navigation.navigate('DeliveryContact')}}>
+     <TouchableOpacity onPress ={()=>{this.props.navigation.navigate('')}}>
         <View style={{flexDirection:'row',justifyContent:'space-between'}}>
- <Text style={{fontSize:16,color:Colors.dark_gry,fontWeight:'bold'}}>Delivery ID : 1234567890</Text>
+ <Text style={{fontSize:16,color:Colors.dark_gry,fontWeight:'bold'}}>Delivery ID : {item.order_code}</Text>
 <Text style={{color:Colors.dark_gry}}>Status</Text>
 </View>
 <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:10,marginBottom:5}}>
- <Text style={{fontSize:16,color:Colors.dark_gry,}}>Receiver Name : Receiver</Text>
+ <Text style={{fontSize:16,color:Colors.dark_gry,}}>Receiver Name : {item.receiver_name}</Text>
 <Text style={{color:Colors.dark_gry}}>Item delivering</Text>
 </View>
 
- <Text style={{fontSize:16,color:Colors.dark_gry,fontWeight:'bold',marginBottom:10,marginTop:5}}>Item Type : Parcel</Text>
+ <Text style={{fontSize:16,color:Colors.dark_gry,fontWeight:'bold',marginBottom:10,marginTop:5}}>Item Type : {item.package_name}</Text>
 <Text style={{color:Colors.dark_gry}}>(L/W/H)</Text>
 </TouchableOpacity>
     </View>
@@ -144,7 +177,7 @@ export default class App extends Component {
     renderHistory = ({ item, index }) => (
         <View style={{ margin: 5,marginHorizontal:10, flex: 1,backgroundColor:Colors.gry_color ,padding:15}}>
             
-     <TouchableOpacity onPress ={()=>{this.props.navigation.navigate('RateDelivery')}}>
+     <TouchableOpacity onPress ={()=>{this.props.navigation.navigate('')}}>
             <View style={{flexDirection:'row',justifyContent:'space-between'}}>
      <Text style={{fontSize:16,color:Colors.dark_gry,fontWeight:'bold'}}>Delivery ID : {item.order_code}</Text>
 <Text style={{color:Colors.dark_gry}}>Status</Text>
@@ -210,7 +243,7 @@ export default class App extends Component {
                             style={{ width: '100%', flex: 1 }}
 
                             showsVerticalScrollIndicator={false}
-                            data={this.state.Data}
+                            data={this.state.onGoingData}
                             renderItem={this.renderOngoing}
                         // ListEmptyComponent={this.ListEmpty}
                         />
@@ -235,7 +268,7 @@ export default class App extends Component {
                                    }
                                     </View>
                                     :null}
-            
+            {this.state.isLoading ? <Modal transparent={true}><Loader /></Modal> : null}
             </View>
         );
     }

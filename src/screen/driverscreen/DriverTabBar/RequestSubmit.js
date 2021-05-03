@@ -11,7 +11,7 @@ import { Header, Icon, Avatar } from 'react-native-elements';
 import Colors from '../../../constant/Color';
 const screenD16 = ( { navigation} ) => {
     return(
-        <View style={{flex:1,}}>
+        <View style={{flex:1,backgroundColor:'#fff'}}>
                   <Header
 
 statusBarProps={{ barStyle: 'dark-content' }}
@@ -40,7 +40,7 @@ centerComponent={
                 <Text style={{textAlign:"center", fontSize:17, color:"gray",fontWeight:"600"}}>Request Submitted</Text>
                 <Text style={{textAlign:"center", fontSize:13, color:"gray", marginBottom:75,padding:20}}>We will get back to you in 2 business days</Text>
            </View> 
-           <TouchableOpacity style={{height:"5%", width:"75%", borderRadius:5, alignSelf:"center", backgroundColor:"#87CEEB" }}
+           <TouchableOpacity style={{height:40, width:"75%", borderRadius:5, alignSelf:"center", backgroundColor:"#87CEEB" }}
            onPress={() => navigation.navigate('HomeD')}>
              <Text style={{textAlign:"center", marginTop:10}}>Back to Home</Text>
            </TouchableOpacity>

@@ -30,6 +30,7 @@ export default class App extends Component {
       Lenght: '',
       width: '',
       height: '',
+      weight:"",
       showpassword: true
     }
   }
@@ -57,7 +58,8 @@ getDataUsingPost = (value) => {
     //POST json
    
     // {console.log('token------',token)}
-    let _data = { receiver_name:this.state.name, receiver_address:this.state.address ,receiver_mobile:this.state.mobile ,pickup_date:'2021-04-20,',package_weight:'1',package_id:'1' }
+    let _data = { receiver_name:this.state.name, receiver_address:this.state.address ,
+      receiver_mobile:this.state.mobile ,pickup_date:'2021-05-01,',package_weight:this.state.weight,package_id:'1' }
     
     fetch('http://ec2-54-251-142-179.ap-southeast-1.compute.amazonaws.com:6060/api/v1/aurental/add_order', {
       method: "POST",
@@ -153,9 +155,9 @@ getDataUsingPost = (value) => {
     
             <TextInput
                 style={{ height: 40, backgroundColor: "#F4F4F4", width: 80, marginLeft: 50,paddingLeft:30 }}
-                placeholder="1"
-                onChangeText={(Lenght) => this.setState({ Lenght })}
-                value={this.state.Lenght}
+                placeholder="Enter "
+                onChangeText={(weight) => this.setState({ weight })}
+                value={this.state.weight}
               />
         
 
