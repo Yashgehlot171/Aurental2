@@ -46,7 +46,7 @@ centerComponent={
       onPress={() => navigation.navigate('RequestVehicle')}>
       <Text style={{textAlign:"center", fontSize: 16, color: Colors.introButtonLabel  }}>Request a vehicle</Text>
       </TouchableOpacity>
-      
+       
       <View style={{flexDirection:"row", marginVertical:45}}> 
       <View style={{backgroundColor:"gray", width:"40%", height:1, opacity:0.5, alignSelf:"center", marginLeft:30}}></View>
        <Text style={{color:"grey", textAlign:"center", marginLeft:10, marginTop:-3, color:"grey"}}>or</Text> 
@@ -57,30 +57,30 @@ centerComponent={
       <Text style={{color:"grey", marginLeft:30, fontSize:16, marginBottom:15, fontWeight:"700", fontSize:12}}>Owner Detail</Text>
 
         <TextInput
-                style={{height: 40, backgroundColor:"#f0eded", width:"85%", alignSelf:"center", marginBottom:20, color:"#6D6B6B"}}
+                style={{height: 40, backgroundColor: Colors.gry_color, width:"85%", alignSelf:"center", marginBottom:20, color:"#6D6B6B"}}
                 placeholder="E-mail Address"
                 keyboardType="email-address"
               />
 
              <TextInput
-                style={{height: 40, backgroundColor:"#f0eded", width:"85%", alignSelf:"center", marginBottom:20}}
+                style={{height: 40, backgroundColor: Colors.gry_color, width:"85%", alignSelf:"center", marginBottom:20}}
                 placeholder="Mobile Number"
                 keyboardType="number-pad"
               />
 
               <TextInput
-                style={{height: 40, backgroundColor:"#f0eded", width:"85%", alignSelf:"center", marginBottom:20}}
+                style={{height: 40, backgroundColor: Colors.gry_color, width:"85%", alignSelf:"center", marginBottom:20}}
                 placeholder="Password"
               />
 
              <TextInput
-                style={{height: 40, backgroundColor:"#f0eded", width:"85%", alignSelf:"center", marginBottom:30}}
+                style={{height: 40, backgroundColor: Colors.gry_color, width:"85%", alignSelf:"center", marginBottom:30}}
                 placeholder="Password"
               />
               
               <Text style={{color:"grey", marginLeft:30, fontSize:16, marginBottom:15, fontWeight:"700", fontSize:12}}>Vehicle Detail</Text>
 
-              <View  style={{height:40,width:"85%", alignSelf:"center", backgroundColor:"#f0eded", marginBottom:20}}>
+              <View  style={{height:40,width:"85%", alignSelf:"center", backgroundColor: Colors.gry_color, marginBottom:20}}>
                 <Picker style={{color:'#6D6B6B', height: 45, width: "100%"}}  
                   selectedValue={selectedValue}
                   onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
@@ -92,16 +92,16 @@ centerComponent={
               </View>
 
               <TextInput
-                style={{height: 40, backgroundColor:"#f0eded", width:"85%", alignSelf:"center", marginBottom:30}}
+                style={{height: 40, backgroundColor: Colors.gry_color, width:"85%", alignSelf:"center", marginBottom:30}}
                 placeholder="Vehicle Type"
               />
 
              <TextInput
-                style={{height: 40, backgroundColor:"#f0eded", width:"85%", alignSelf:"center", marginBottom:30}}
+                style={{height: 40, backgroundColor: Colors.gry_color, width:"85%", alignSelf:"center", marginBottom:30}}
                 placeholder="Owner ID Type"
               />
 
-             <View  style={{height:40,width:"85%", alignSelf:"center", backgroundColor:"#f0eded", marginBottom:20}}>
+             <View  style={{height:40,width:"85%", alignSelf:"center", backgroundColor: Colors.gry_color, marginBottom:20}}>
                 <Picker style={{color:'#6D6B6B', height: 45, width: "100%"}}  
                   selectedValue1={selectedValue1}
                   onValueChange={(itemValue, itemIndex) => setSelectedValue1(itemValue)}>
@@ -124,11 +124,11 @@ centerComponent={
                 <Text style={{fontSize:20, textAlign:"center", marginTop:25}}>+</Text>
               </View>
 
-          <View style={{width:"83%", backgroundColor:"#f0eded", alignSelf:"center", height:529, marginBottom:30}}>
+          <View style={{width:"83%", backgroundColor: Colors.gry_color, alignSelf:"center", height:529, marginBottom:30}}>
             <Text style={{padding:5, marginLeft:5, fontSize:15, color:"grey"}}>AR Scan</Text>
             <Text style={{marginLeft:12, fontSize:10, marginBottom:30, color:"grey"}}>Use AR to capture vehicle size and capacity</Text>
 
-            <TouchableOpacity style={styles.button_Style}>
+            <TouchableOpacity style={styles.button_Style} onPress={() => navigation.navigate('Camera')}>
              <Text style={{textAlign:"center", fontWeight:"600", fontSize:16, color:"#fff"}}>AR Scan</Text>
            </TouchableOpacity>
            
@@ -164,7 +164,7 @@ centerComponent={
 
           <Text style={{color:"gray", marginLeft:30,fontWeight:"700", marginBottom:10, fontSize:17}}>Addition Iformation</Text>
           
-          <View  style={{height:40,width:"85%", alignSelf:"center", backgroundColor:"#f0eded", marginBottom:20}}>
+          <View  style={{height:40,width:"85%", alignSelf:"center", backgroundColor: Colors.gry_color, marginBottom:20}}>
                 <Picker style={{color:'#6D6B6B', height: 45, width: "100%"}}  
                   selectedValue2={selectedValue2}
                   onValueChange={(itemValue, itemIndex) => setSelectedValue2(itemValue)}>

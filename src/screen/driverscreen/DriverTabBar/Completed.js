@@ -82,7 +82,7 @@ export default class App extends Component {
                         </TouchableOpacity>
                     }
                     centerComponent={
-                        <Text style={{ width: '100%', color: Colors.dark_gry, fontSize: 20, textAlign: 'center', marginTop: 5, marginLeft: -5, height: 40 }}>Completed</Text>
+                        <Text style={{ width: '100%', fontSize: 20, textAlign: 'center', marginTop: 5, marginLeft: -5, height: 40, fontWeight:"700" }}>Completed</Text>
 
                     }
 
@@ -98,8 +98,8 @@ export default class App extends Component {
                     <View style={{backgroundColor:'#fff',height:55,width:95,borderRadius:5,alignItems:'center',justifyContent:'center'}}>
                       <Text style={{color:'#000',fontWeight:'bold'}}>12 Items</Text>
                     </View>
-<Text style={{color:'#fff',marginVertical:17}}>Start time 00:00</Text>
-<Text style={{color:'#fff',marginVertical:17,marginRight:10}}>End time 00:00</Text>
+<Text style={{color:'#fff',marginVertical:17}}>Total Time 00:00</Text>
+<Text style={{color:'#fff',marginVertical:17,marginRight:10}}>17 Jan 2021</Text>
                   </View>
                  
                   </View>
@@ -164,6 +164,10 @@ export default class App extends Component {
                     <Image style={{ width: 20, height: 20, tintColor: '#000', marginTop: 11, resizeMode: 'contain' }} source={require('../../../../assets/icon/right-arrow.png')} />
 
                 </View>
+                <View style={{height:90, backgroundColor:Colors.introButton, width:"75%", marginLeft:50, marginTop:30, opacity:0.7}}>
+        <Text style={{fontSize:25, textAlign:"center", marginTop:20, fontWeight:"bold"}}>S$0.00</Text>
+        <Text style={{textAlign:"center",}}>Today’s Balance</Text>
+      </View>
             </View>
             </View>
         )

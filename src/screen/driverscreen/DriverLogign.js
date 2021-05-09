@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { TouchableOpacity, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native';
-import { Platform, StyleSheet, StatusBar, Text, View, Alert, ImageBackground, Image, ActivityIndicator,Modal } from 'react-native';
+import { Platform, StyleSheet, StatusBar, Text, View, Alert, ImageBackground, Image, ActivityIndicator,Modal, } from 'react-native';
 import Colors from '../../constant/Color';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Loader from '../../../Loader/index';
@@ -122,7 +122,7 @@ leftComponent={
     </TouchableOpacity>
 }
 centerComponent={
-    <Text style={{ width: '100%', color: Colors.dark_gry, fontSize:20, textAlign: 'center', marginTop: 5, marginLeft: -5, height: 40 }}>Login</Text>
+    <Text style={{ width: '100%', color: Colors.dark_gry, fontSize:20, textAlign: 'center', marginTop: 5, marginLeft: -5, height: 40 }}>Log In</Text>
 
 }
 
@@ -159,7 +159,7 @@ centerComponent={
                                                 }}>
                                                 <Image
                                                     source={require('../../../assets/icon/eye-pass.png')}
-                                                    style={{ width: 25, height: 21, marginTop: 10, resizeMode: 'contain', }}
+                                                    style={{ width: 25, height: 21, marginTop: 10, resizeMode: 'contain', marginLeft:-5}}
                                                 />
                                             </TouchableOpacity>
                                         </View>
@@ -171,7 +171,7 @@ centerComponent={
                                             }}>
                                             <Image
                                                 source={require('../../../assets/icon/eye-pass.png')}
-                                                style={{ width: 25, height: 21, marginTop: 10, resizeMode: 'contain', tintColor: Colors.introButton }}
+                                                style={{ width: 25, height: 21, marginTop: 10, resizeMode: 'contain', tintColor: Colors.introButton, marginLeft:-5 }}
                                             />
                                         </TouchableOpacity>
                                     }
@@ -181,7 +181,7 @@ centerComponent={
                             <TouchableOpacity style={{ alignItems: 'flex-end', alignSelf: 'flex-end', marginTop: 5, marginRight: 5 }}
                                 onPress={() => { this.props.navigation.navigate('ForgotPassword', { token: this.props.navigation.getParam('token') }) }}
                             >
-                                <Text style={{ fontSize: 16, color: Colors.dark_gry }}>Forgot Password?</Text>
+                                <Text style={{ fontSize: 16, color: Colors.dark_gry ,}}>Forgot Password?</Text>
                             </TouchableOpacity>
 
 
@@ -217,7 +217,9 @@ centerComponent={
 
                             <View style={{ justifyContent: 'flex-end', alignItems: 'center' }}>
                                 <TouchableOpacity onPress={() => { this.props.navigation.navigate('DriverSignUp', { token: this.props.navigation.getParam('token') }) }}>
-                                    <Text style={{ fontSize: 16, color: Colors.introButton }}>Don't have an account? Sign Up</Text></TouchableOpacity>
+                                    
+                                    <Text style={{fontSize:16,color:Colors.dark_gry}}>Don't have an account?<Text  style={{fontSize:16,color:Colors.introButton}}> Sign Up</Text> </Text>
+                                    </TouchableOpacity>
                             </View>
                         </View>
                     </View>

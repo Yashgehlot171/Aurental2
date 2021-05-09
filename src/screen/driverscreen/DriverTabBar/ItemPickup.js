@@ -29,7 +29,7 @@ leftComponent={
     </TouchableOpacity>
 }
 centerComponent={
-    <Text style={{ width: '100%', color: Colors.dark_gry, fontSize:20, textAlign: 'center', marginTop: 5, marginLeft: -7, height: 40 }}>Item Picker</Text>
+    <Text style={{ width: '100%', fontSize:20, textAlign: 'center', marginTop: 5, marginLeft: -7, height: 40, fontWeight:"700" }}>Item Picker</Text>
 
 }
 
@@ -37,41 +37,42 @@ centerComponent={
 <View style={{ backgroundColor: '#000', width: '100%', height: 0.3, marginVertical: 3 }} />
 
        <ScrollView> 
-      <Text style={{fontSize:15, marginBottom:3, marginLeft:25, color:"grey", fontWeight:"600", marginTop:30}}>Tracking Number</Text>
-      <Text style={{fontSize:13, marginBottom:20, marginLeft:25, color:"gray"}}>1234567890</Text>
+      <Text style={{fontSize:16, marginBottom:3, marginLeft:25, fontWeight:"600", marginTop:30}}>Tracking Number</Text>
+      <Text style={{fontSize:14, marginBottom:20, marginLeft:25, color:"gray"}}>1234567890</Text>
 
-      <Text style={{fontSize:15, marginBottom:3, marginLeft:25, color:"grey", fontWeight:"600"}}>Service</Text>
-      <Text style={{fontSize:13, marginBottom:20, marginLeft:25, color:"gray"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit</Text>
+      <Text style={{fontSize:16, marginBottom:3, marginLeft:25, fontWeight:"600"}}>Service</Text>
+      <Text style={{fontSize:14, marginBottom:20, marginLeft:25, color:"gray"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit</Text>
        
-      <Text style={{fontSize:15, marginBottom:3, marginLeft:25, color:"grey", fontWeight:"600"}}>Delivery Location</Text>
-      <Text style={{fontSize:13, marginBottom:20, marginLeft:25, color:"gray"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      <Text style={{fontSize:16, marginBottom:3, marginLeft:25, fontWeight:"600"}}>Delivery Location</Text>
+      <Text style={{fontSize:14, marginBottom:20, marginLeft:25, color:"gray"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       Pellentesque eleifend odio quis metus ornare, pretium
       maximus metus aliquet.</Text> 
 
-      <Text style={{fontSize:15, marginBottom:3, marginLeft:25, color:"grey", fontWeight:"600"}}>Receiver</Text>
-      <Text style={{fontSize:13, marginBottom:20, marginLeft:25, color:"gray"}}>Jonathan Doe</Text>
+      <Text style={{fontSize:16, marginBottom:3, marginLeft:25, color:"grey", fontWeight:"600"}}>Receiver</Text>
+      <Text style={{fontSize:14, marginBottom:20, marginLeft:25, color:"gray"}}>Jonathan Doe</Text>
 
-      <Text style={{fontSize:15, marginBottom:5, marginLeft:25, color:"grey", fontWeight:"600"}}>Package Image</Text>
+      <Text style={{fontSize:16, marginBottom:5, marginLeft:25, color:"grey", fontWeight:"600"}}>Package Image</Text>
    
       <View style={{flexDirection:"row", marginBottom:25}}> 
-        <View style={{height:70, backgroundColor:"gray", width:70, marginLeft:29,}}>
+        <View style={{height:70, backgroundColor:"gray", width:70, marginLeft:29, opacity:0.5, borderRadius:5}}>
         </View>
 
-        <View style={{height:70, backgroundColor:"gray", width:70, marginLeft:10,}}>
+        <View style={{height:70, backgroundColor:"gray", width:70, marginLeft:10, opacity:0.5, borderRadius:5 }}>
         </View>
 
-        <View style={{height:70, backgroundColor:"gray", width:70, marginLeft:10,}}>
+        <View style={{height:70, backgroundColor:"gray", width:70, marginLeft:10, opacity:0.5, borderRadius:5}}>
         </View>
       </View>
 
-      <Text style={{fontSize:15, marginBottom:3, marginLeft:25, color:"grey", fontWeight:"600"}}>Signature</Text>
+      <Text style={{fontSize:16, marginBottom:3, marginLeft:25, color:"grey", fontWeight:"600"}}>Signature</Text>
       <View style={{height:120, borderColor:"gray", width:"85%", marginBottom:105, borderWidth:1, marginLeft:29,}}>
       </View>
 
       <TouchableOpacity>
-        <Text style={{textAlign:"center", marginBottom:50}}>Report an Issue</Text>
+        <Text style={{textAlign:"center", fontWeight:"700",  }}>Report an Issue</Text>
       </TouchableOpacity>
-      <View style={{height:1, width:110, alignSelf:"center", backgroundColor:"grey"}}></View>
+      {/* <View style={{height:1, backgroundColor:"red", width:60, alignSelf:"center"}}></View> */}
+      <View style={{height:2, width:105, alignSelf:"center", backgroundColor:"grey", marginBottom:50}}></View>
       </ScrollView>
     </View>
   );

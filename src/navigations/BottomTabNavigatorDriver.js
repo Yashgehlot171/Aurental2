@@ -4,23 +4,26 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import BottomTabBarDriver from './BottomTabBarDriver';
 //tabscreen
-import HomeD from '../screen/driverscreen/DriverTabBar/HomeD'
-import HistoryD from '../screen/driverscreen/DriverTabBar/HistoryD'
-import VehicleD from '../screen/driverscreen/DriverTabBar/VehicleD'
-import NotificationD from '../screen/driverscreen/DriverTabBar/NotificationD'
-import MoreD from '../screen/driverscreen/DriverTabBar/MoreD'
-import ItemPickup from '../screen/driverscreen/DriverTabBar/ItemPickup'
+import HomeD from '../screen/driverscreen/DriverTabBar/HomeD';
+import HistoryD from '../screen/driverscreen/DriverTabBar/HistoryD';
+import VehicleD from '../screen/driverscreen/DriverTabBar/VehicleD';
+import NotificationD from '../screen/driverscreen/DriverTabBar/NotificationD';
+import MoreD from '../screen/driverscreen/DriverTabBar/MoreD';
+import ItemPickup from '../screen/driverscreen/DriverTabBar/ItemPickup';
 import MyVehicle from '../screen/driverscreen/DriverTabBar/MyVehicle';
 import RequestVehicle from '../screen/driverscreen/DriverTabBar/RequestVehicle';
 import RequestSubmit from '../screen/driverscreen/DriverTabBar/RequestSubmit';
 import Accident from '../screen/driverscreen/DriverTabBar/Accident';
 import ServiceBooking from '../screen/driverscreen/DriverTabBar/ServiceBooking';
 import VehicleDetails from '../screen/driverscreen/DriverTabBar/VehicleDetails';
+import ServiceMaintenance from '../screen/driverscreen/DriverTabBar/ServiceMaintenance';
+// import Camera from '../screen/driverscreen/DriverTabBar';
 import Wallet from '../screen/driverscreen/DriverTabBar/Wallet';
-import Transaction from '../screen/driverscreen/DriverTabBar/Transaction'
-import CourierDetail from '../screen/driverscreen/DriverTabBar/CourierDetail'
-import Completed from '../screen/driverscreen/DriverTabBar/Completed'
-import RouteScreen from '../screen/driverscreen/DriverTabBar/RouteScreen'
+import Transaction from '../screen/driverscreen/DriverTabBar/Transaction';
+import CourierDetail from '../screen/driverscreen/DriverTabBar/CourierDetail';
+import TransactionDetail from '../screen/driverscreen/DriverTabBar/TransactionDetail';
+import Completed from '../screen/driverscreen/DriverTabBar/Completed';
+import RouteScreen from '../screen/driverscreen/DriverTabBar/RouteScreen';
  
 const transitionConfig = () => {
     return {
@@ -192,6 +195,18 @@ const VehicleDStack = createStackNavigator(
                 header: null,
             })
         },
+        ServiceMaintenance: {
+            screen: ServiceMaintenance,
+            navigationOptions: ({ navigation }) => ({
+                header: null,
+            })
+        },
+        // Camera: {
+        //     screen: Camera,
+        //     navigationOptions: ({ navigation }) => ({
+        //         header: null,
+        //     })
+        // },
          
     }, {
     initialRouteName: 'VehicleD'
@@ -238,6 +253,13 @@ const MoreDStack = createStackNavigator(
                 header: null
             })
         },
+        TransactionDetail: {
+            screen: TransactionDetail,
+            navigationOptions: ({ navigation }) => ({
+                header: null
+            })
+        },
+         
          
     }, {
     initialRouteName: 'MoreD'

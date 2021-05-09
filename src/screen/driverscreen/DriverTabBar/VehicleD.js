@@ -39,7 +39,7 @@ export default class screenD11 extends Component {
       />
 <View style={{backgroundColor:'#000',width:'100%',height:0.5,marginVertical:5}}/>
 <TouchableOpacity onPress={() => this.props.navigation.navigate('VehicleDetails')}>
-       <View style={{height:50, width:"85%", backgroundColor:"#f0eded", alignSelf:"center", marginTop:30,flexDirection:'row', justifyContent:'space-between'}}>
+       <View style={{height:50, width:"85%", backgroundColor: Colors.gry_color, alignSelf:"center", marginTop:30,flexDirection:'row', justifyContent:'space-between'}}>
         <Text style={{fontSize:15, fontWeight:"700", marginTop:15, marginLeft:20,}}>My vehicle</Text>
 
            <Image
@@ -48,7 +48,7 @@ export default class screenD11 extends Component {
            />
   </View>
        </TouchableOpacity>
-       <View style={{height:50, width:"85%", backgroundColor:"#f0eded", alignSelf:"center", marginTop:30,flexDirection:'row', justifyContent:'space-between'}}>
+       <View style={{height:50, width:"85%", backgroundColor: Colors.gry_color, alignSelf:"center", marginTop:30,flexDirection:'row', justifyContent:'space-between'}}>
         <Text style={{fontSize:15, fontWeight:"700", marginTop:15, marginLeft:20,}}>Breakdown</Text>
         <TouchableOpacity>
            <Image
@@ -58,7 +58,7 @@ export default class screenD11 extends Component {
         </TouchableOpacity>
        </View>
        <TouchableOpacity  onPress={() => this.props.navigation.navigate('Accident')}>
-       <View style={{height:50, width:"85%", backgroundColor:"#f0eded", alignSelf:"center", marginTop:30,flexDirection:'row', justifyContent:'space-between'}}>
+       <View style={{height:50, width:"85%", backgroundColor: Colors.gry_color, alignSelf:"center", marginTop:30,flexDirection:'row', justifyContent:'space-between'}}>
         <Text style={{fontSize:15, fontWeight:"700", marginTop:15, marginLeft:20,}}>Accident</Text>
 
            <Image
@@ -69,7 +69,7 @@ export default class screenD11 extends Component {
        </View>
        </TouchableOpacity>
        <TouchableOpacity onPress={() => this.props.navigation.navigate('ServiceBooking')}>
-       <View style={{height:50, width:"85%", backgroundColor:"#f0eded", alignSelf:"center", marginTop:30,flexDirection:'row', justifyContent:'space-between'}}>
+       <View style={{height:50, width:"85%", backgroundColor: Colors.gry_color, alignSelf:"center", marginTop:30,flexDirection:'row', justifyContent:'space-between'}}>
         <Text style={{fontSize:15, fontWeight:"700", marginTop:15, marginLeft:20,}}>Server Booking</Text>
 
            <Image

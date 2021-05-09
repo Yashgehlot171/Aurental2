@@ -30,9 +30,9 @@ export default class LogoutScreen extends Component{
           volume:"Volume",
         }, 
         { id:1, 
-            ID: "Vehicle 1",
-            Name:"Owned Vehicle",
-            date:"Vehicle No",
+            ID: "Vehicle 2",
+            Name:"Leased Vehicle",
+            date:"Lease No",
             description: "View Vehicle Document", 
             description1: "View Vehicle AR Scan", 
             height:"Height",
@@ -99,6 +99,9 @@ export default class LogoutScreen extends Component{
                 <View style={{flexDirection:"row", marginTop:20,}}>
                 <Text style={{fontSize:13, opacity:0.9}}>{item.date}</Text>
                 <Text style={styles.time}>{item.date}</Text>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('ServiceMaintenance')}>
+                <Text style={styles.time}>{item.description}</Text>
+                </TouchableOpacity>
                 <Text style={styles.time}>{item.description}</Text>
                 </View>
 
@@ -134,7 +137,7 @@ export default class LogoutScreen extends Component{
             )}}/>
                 <TouchableOpacity
                 onPress={() => this.props.navigation.navigate('MyVehicle')}>
-                  <Text style={{textAlign:"center", fontWeight:"bold", color:"grey", fontSize:16 }}>Edit Vehicle</Text>
+                  <Text style={{textAlign:"center", fontWeight:"bold", color:"grey", fontSize:19, opacity:0.7 }}>Edit Vehicle</Text>
                  </TouchableOpacity>
                  </ScrollView>
    </View> 
@@ -154,7 +157,7 @@ const styles = StyleSheet.create({
     padding:20,
     // marginTop:5,
     marginBottom:30,
-    backgroundColor: '#f0eded',
+    backgroundColor: Colors.gry_color,
     // flexDirection: 'row',
     borderRadius:10,
   },

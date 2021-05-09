@@ -71,14 +71,14 @@ centerComponent={
             </View>
 
             <View style={{flexDirection:"row", justifyContent:"space-around", marginBottom:25}}>
-            <Text style={{marginLeft:-9 }}>Transaction</Text>
-            <Text style={{ }}>Statics</Text>
-            <Text style={{ }}>Cash Out</Text>
+            <Text style={{marginLeft:-9, fontWeight:"700" }}>Transaction</Text>
+            <Text style={{fontWeight:"700" }}>Statics</Text>
+            <Text style={{ fontWeight:"700"}}>Cash Out</Text>
             </View>
             
-            <Text style={{marginLeft:15, marginBottom:10 }}>Bank Info</Text>
+            <Text style={{marginLeft:15, marginBottom:10, fontWeight:"700", }}>Bank Info</Text>
 
-            <ScrollView  horizontal={true}>   
+            <ScrollView  horizontal={true} showsHorizontalScrollIndicator={false}>   
                 <View style={[{ width:330,height: 170,padding: 10, marginLeft:15, borderRadius:10, backgroundColor: Colors.introButton }]}>  
                     <View style={{flexDirection:"row", justifyContent:"space-between", marginBottom:10}}>
                         <Text style={{fontWeight:"bold", color:"white", fontSize:20}}>Mohamed Salah</Text>
@@ -96,11 +96,11 @@ centerComponent={
                 </View>  
 
                 <View style={[{ width:330,height: 170,padding: 10, marginLeft:15, borderRadius:10, marginRight:15, borderColor:"grey", borderWidth:1, justifyContent:"center"}]}>  
-                     <Text style={{textAlign:"center", }}>+ ADD New Bank Account</Text>
+                     <Text style={{textAlign:"center",fontWeight:"700", fontSize:20 , color:"grey"}}>+ ADD New Bank Account</Text>
                 </View> 
             </ScrollView> 
 
-            <Text style={{textAlign:"center", marginTop:150 }}>Here comes the info tip on the bottom if any</Text> 
+            <Text style={{textAlign:"center", marginTop:150, fontWeight:"700", color:"grey", fontSize:15 }}>Here comes the info tip on the bottom if any</Text> 
             </View>
         );  
     }  

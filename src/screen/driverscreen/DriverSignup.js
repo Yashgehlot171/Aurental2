@@ -325,32 +325,61 @@ centerComponent={
                                     autoCapitalize='none'/>
                                     </View>
 
-
-                                    <TextInput
+                                    <View style={{ width: '100%', flexDirection: 'row' }}>
+                               <View style={{marginRight:-20,width:'100%'}}>
+                                <TextInput
                                     style={[styles.auth_textInput,]}
-                                    onChangeText={(optionaladdress) => this.setState({ optionaladdress })}
-                                    value={this.state.optionaladdress}
+                                    onChangeText={(password) => this.setState({ password })}
+                                    value={this.state.password}
                                     placeholder="Start Location"
+                                    secureTextEntry={this.state.showpassword}
                                     placeholderTextColor={Colors.dark_gry}
-                                    autoCapitalize='none'/>
+                                    autoCapitalize='none' />
+                              </View>
+                                 
+                                    <View>
 
-                                  <TextInput
+                                            <Image
+                                                source={require('../../../assets/icon/gps-grey.png')}
+                                                style={{ width: 25, height: 21, marginTop: 20, marginLeft:-25,resizeMode:'contain'  }}
+                                            />
+                                    </View>
+            
+                            </View>
+
+                            <View style={{ width: '100%', flexDirection: 'row' }}>
+                               <View style={{marginRight:-20,width:'100%'}}>
+                                <TextInput
                                     style={[styles.auth_textInput,]}
-                                    onChangeText={(optionaladdress) => this.setState({ optionaladdress })}
-                                    value={this.state.optionaladdress}
-                                    placeholder="End Location"
+                                    onChangeText={(password) => this.setState({ password })}
+                                    value={this.state.password}
+                                    placeholder="Start Location"
+                                    secureTextEntry={this.state.showpassword}
                                     placeholderTextColor={Colors.dark_gry}
-                                    autoCapitalize='none'/>
+                                    autoCapitalize='none' />
+                              </View>
+                                 
+                                    <View>
+
+                                            <Image
+                                                source={require('../../../assets/icon/gps-grey.png')}
+                                                style={{ width: 25, height: 21, marginTop: 20, marginLeft:-25,resizeMode:'contain'  }}
+                                            />
+                                    </View>
+            
+                            </View>
+
+                                   
                                      
                                      <View style={{flexDirection:"row", justifyContent:"space-evenly", width:"100%"}}>
                                      <CheckBox
-                                     style={{padding:15,color:'grey',marginLeft:5}}
+                                     style={{padding:15,color:'grey',marginLeft:5, marginTop:10}}
                                        isChecked={this.state.termsCheck}
                                       onClick={() => {
                                         this.setState({termsCheck: !this.state.termsCheck});
                                            }}
                                           />
-                                    <Text style={{color:"grey", padding:15,marginRight:15}}>By proceeding, I agree that Aurental can collet, use, and disclose 
+                                    <Text style={{color:"grey", padding:15,marginRight:15, marginTop:10}}>By proceeding, I agree that Aurental can collet, use, and disclose 
                                          the informationprovided by me in accordance with the Privacy 
                                          Policy and I fully comply with Terms & Conditions which I have 
                                          read and understand.</Text>
@@ -384,7 +413,7 @@ centerComponent={
                         </View>
                         <View style={{justifyContent:'flex-end',alignItems:'center',marginBottom:10}}>
                            <TouchableOpacity onPress={()=>{this.props.navigation.navigate('CustomerLogin')}}>
-                            <Text style={{fontSize:16,color:Colors.dark_gry}}>I have an account?<Text  style={{fontSize:16,color:Colors.introButton}}> Log In.</Text> </Text></TouchableOpacity>
+                            <Text style={{fontSize:16,color:Colors.dark_gry}}>Already have an account?<Text  style={{fontSize:16,color:Colors.introButton}}> Log In.</Text> </Text></TouchableOpacity>
                         </View>
                         </ScrollView>
                         </View>

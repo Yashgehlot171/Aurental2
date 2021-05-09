@@ -64,7 +64,7 @@ export default class LogoutScreen extends Component{
       />
       <Text style={{textAlign:"center", fontSize:17, color:"gray", marginBottom:25}}>Driver Name</Text>
       <View style={{alignItems:"center", flex:1}}> 
-      <View style={{backgroundColor:"#f0eded", height:200, width:"75%", marginTop:5, alignItems:"center", marginBottom:60}}>
+      <View style={{backgroundColor: Colors.gry_color, height:200, width:"75%", marginTop:5, alignItems:"center", marginBottom:60}}>
         <View style={{flexDirection:"row", marginTop:25}}>
           <Text style={{}}>E-mail Address</Text>
           <Text style={{marginLeft:35, color:"gray"}}>E-mail Address</Text>
@@ -104,7 +104,7 @@ export default class LogoutScreen extends Component{
       </TouchableOpacity>
       <View style={{height:1, backgroundColor:"red", width:60, alignSelf:"center"}}></View>
      
-      <Text style={{fontSize:15, color:"gray", marginLeft:15}}>Rating</Text>
+      <Text style={{fontSize:15, color:"gray", marginLeft:15, fontWeight:"700"}}>Rating</Text>
       <FlatList 
           style={styles.notificationList} 
           enableEmptySections={true}
@@ -115,7 +115,18 @@ export default class LogoutScreen extends Component{
           renderItem={({item}) => {
             return (
               <View style={styles.notificationBox}>
-                <Text style={styles.time}>{item.ID}</Text>
+                
+                <View style={{flexDirection:"row", justifyContent:"space-between"}}>
+                <Text style={{ fontSize:14, color:Colors.dark_gry, fontSize:17}}>{item.ID}</Text>
+                <View style={{flexDirection:"row"}}>
+                <Image style={{height:17, width:17,}} source={require('../../../../assets/icon/star(fill).png')}/>
+                <Image style={{height:17, width:17,}} source={require('../../../../assets/icon/star(fill).png')}/>
+                <Image style={{height:17, width:17,}} source={require('../../../../assets/icon/star(fill).png')}/>
+                <Image style={{height:17, width:17,}} source={require('../../../../assets/icon/star(fill).png')}/>
+                <Image style={{height:17, width:17,}} source={require('../../../../assets/icon/star(fill).png')}/>
+                </View>
+                </View>
+
                 <View style={{flexDirection:"row", justifyContent:"space-between"}}>
                 <Text style={styles.time}>{item.Name}</Text>
                 <Text style={styles.time}>{item.date}</Text>
@@ -141,7 +152,7 @@ const styles = StyleSheet.create({
     padding:20,
     // marginTop:5,
     marginBottom:5,
-    backgroundColor: '#f0eded',
+    backgroundColor: Colors.gry_color,
     // flexDirection: 'row',
     borderRadius:10,
   },
@@ -150,12 +161,12 @@ const styles = StyleSheet.create({
     height:45,
   },
   description:{
-    fontSize:13,
-    // color: "#3498db",
+    fontSize:14,
+    color:Colors.dark_gry
     // marginLeft:10,
   },
   time:{
-    fontSize:14,
+    fontSize:15,
     color:Colors.dark_gry
   }
 });

@@ -6,7 +6,8 @@ import {
   TouchableOpacity,
   TextInput,
   Picker,
-  ScrollView
+  ScrollView,
+  StyleSheet
 } from 'react-native';
 
 import { Header, Icon, Avatar } from 'react-native-elements';
@@ -30,18 +31,19 @@ leftComponent={
     </TouchableOpacity>
 }
 centerComponent={
-    <Text style={{ width: '100%', color: Colors.dark_gry, fontSize:20, textAlign: 'center', marginTop: 5, marginLeft: -5, height: 40 }}>Courier Detail</Text>
+    <Text style={{ width: '100%', fontSize:20, textAlign: 'center', marginTop: 5, marginLeft: -5, height: 40, fontWeight:"700" }}>Courier Detail</Text>
 
 }
 
 />
+<View style={{backgroundColor:'#000',width:'100%',height:0.5,marginVertical:5}}/>
       <ScrollView> 
-      <Text style={{fontSize:14, marginBottom:3, marginLeft:25, color:"gray", marginTop:40}}>Tracking Number</Text>
-      <Text style={{fontSize:13, marginBottom:20, marginLeft:25, color:"gray"}}>1234567890</Text>
+      <Text style={{fontSize:16, marginBottom:3, marginLeft:25, marginTop:40}}>Tracking Number</Text>
+      <Text style={{fontSize:14, marginBottom:20, marginLeft:25, color:"gray"}}>1234567890</Text>
 
       <Text style={{fontSize:16, marginBottom:3, marginLeft:25, fontWeight:"600"}}>Sender Dentail</Text>
       <Text style={{fontSize:15, marginBottom:3, marginLeft:25, color:"gray"}}>Name</Text>
-      <Text style={{fontSize:13, marginBottom:20, marginLeft:25, color:"gray"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit</Text>
+      <Text style={{fontSize:14, marginBottom:20, marginLeft:25, color:"gray"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit</Text>
        
       <Text style={{fontSize:15, marginBottom:3, marginLeft:25, color:"gray"}}>Phone Number</Text>
       <Text style={{fontSize:13, marginBottom:20, marginLeft:25, color:"gray"}}>+65 123 456 789</Text>
@@ -116,7 +118,7 @@ centerComponent={
         </View>
         </View>
         
-        <TouchableOpacity style={{width:250, backgroundColor:"#87CEEB", height:35, alignSelf:"center", borderRadius:5, marginBottom:40}}>
+        <TouchableOpacity style={styles.button_Style}>
           <Text style={{marginTop:5, textAlign:"center", fontWeight:"600", fontSize:15, color:"#fff"}}>Submit</Text>
         </TouchableOpacity>
 
@@ -126,3 +128,12 @@ centerComponent={
 };
 
 export default screenD22;
+
+const styles = StyleSheet.create({
+  button_Style: {
+    width: 280, height: 50, backgroundColor: Colors.introButton,
+    borderRadius: 5, alignSelf: 'center',
+    justifyContent: 'center',
+    marginBottom:30
+},
+})

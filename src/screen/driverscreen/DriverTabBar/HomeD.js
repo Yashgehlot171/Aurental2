@@ -41,24 +41,22 @@ export default class App extends Component {
 
                         <Image style={{ width:'100%', height: 30, resizeMode:'contain', }} source={require('../../../../assets/logo.jpg')} />
                     }
-                    // rightComponent={
-                    //     <TouchableOpacity style={{ alignSelf: 'center', justifyContent: 'center', height: 25 }} onPress={() => this.props.navigation.navigate('')}>
-                    //         <Image style={{ width: 30, height: 30, tintColor: '#000', marginRight: 10, marginTop: 5, resizeMode: 'contain' }} source={require('../../../../assets/icon/notification.png')} />
+                    rightComponent={
+                        <TouchableOpacity style={{ alignSelf: 'center', justifyContent: 'center', height: 25 }} onPress={() => this.props.navigation.navigate('')}>
+                            <Image style={{ width: 30, height: 30, tintColor: '#000', marginRight: 10, marginTop: 5, resizeMode: 'contain' }} source={require('../../../../assets/icon/gps.png')} />
 
-                    //     </TouchableOpacity>
-                    // }
+                        </TouchableOpacity>
+                    }
                 />
                              <View style={{ backgroundColor: '#000', width: '100%', height: 0.3, marginVertical: 3 }} />
                 <ScrollView>
                      <View style={{flex:1,padding:14,alignItems:'center',}}>
 
                      <Text style={{fontSize:20,fontWeight:'bold'}}>Welcome!</Text>
-                     <Text style={{fontSize:16,color:Colors.dark_gry,marginVertical:10,marginBottom:5}}>Got any package to deliver?</Text>
+                     <Text style={{fontSize:16,color:Colors.dark_gry,marginVertical:10,marginBottom:5}}>What package are you gonna deliver today?</Text>
                         
-                       
-                <View style={{height:120}}>
-
-                </View>
+                     <Image style={{ width: 80, height: 80, marginLeft: 5, resizeMode: 'contain', marginVertical: 25 }} source={require('../../../../assets/icon/Vector.png')} />  
+                 
              <TouchableOpacity 
              onPress={()=>{this.props.navigation.navigate('ItemPickup')}}
              style={styles.button_Style}>
@@ -67,9 +65,9 @@ export default class App extends Component {
              </View>
              <View style={{flex:1,padding:18}}>
 <View style={{flexDirection:'row',justifyContent:'space-between',width:'100%'}}>
-    <Text style={{color:Colors.dark_gry}}>Special Deals</Text>
+    <Text style={{color:Colors.dark_gry, fontWeight:"700", fontSize:20}}>Special Deals</Text>
    <TouchableOpacity onPress={()=>{this.props.navigation.navigate('')}}>
-    <Text style={{color:Colors.introButton}}>View All</Text>
+    <Text style={{color:Colors.introButton, }}>View All</Text>
     </TouchableOpacity>
 </View>
 <Image style={{ width:'100%', height: 120, marginVertical:10 }} source={require('../../../../assets/car1.png')} />

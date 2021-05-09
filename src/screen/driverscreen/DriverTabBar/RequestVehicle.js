@@ -28,38 +28,38 @@ leftComponent={
     </TouchableOpacity>
 }
 centerComponent={
-    <Text style={{ width: '100%', color: Colors.dark_gry, fontSize:20, textAlign: 'center', marginTop: 5, marginLeft: -7, height: 40 }}>Request Vehicle</Text>
+    <Text style={{ width: '100%', fontSize:20, textAlign: 'center', marginTop: 5, marginLeft: -7, height: 40, fontWeight:"700" }}>Request Vehicle</Text>
 
 }
 
 />
 <View style={{backgroundColor:'#000',width:'100%',height:0.5,marginVertical:5}}/>
         <TextInput
-                style={{height: 40, backgroundColor:"#f0eded", width:"85%", alignSelf:"center", marginTop:30, marginBottom:20}}
+                style={{height: 40, backgroundColor: Colors.gry_color, width:"85%", alignSelf:"center", marginTop:30, marginBottom:20}}
                 placeholder="Name"
               />
 
              <TextInput
-                style={{height: 40, backgroundColor:"#f0eded", width:"85%", alignSelf:"center", marginBottom:20}}
+                style={{height: 40, backgroundColor: Colors.gry_color, width:"85%", alignSelf:"center", marginBottom:20}}
                 placeholder="Email Address"
               />
 
               <TextInput
-                style={{height: 40, backgroundColor:"#f0eded", width:"85%", alignSelf:"center", marginBottom:20}}
+                style={{height: 40, backgroundColor: Colors.gry_color, width:"85%", alignSelf:"center", marginBottom:20}}
                 placeholder="Phone Number"
               />
 
              <TextInput
-                style={{height: 40, backgroundColor:"#f0eded", width:"85%", alignSelf:"center", marginBottom:20}}
+                style={{height: 40, backgroundColor: Colors.gry_color, width:"85%", alignSelf:"center", marginBottom:20}}
                 placeholder="Driving License"
               />
 
               <TextInput
-                style={{height: 40, backgroundColor:"#f0eded", width:"85%", alignSelf:"center", marginBottom:20}}
+                style={{height: 40, backgroundColor: Colors.gry_color, width:"85%", alignSelf:"center", marginBottom:20}}
                 placeholder="Address"
               />
 
-              <View  style={{height:40,width:"85%", alignSelf:"center", backgroundColor:"#f0eded", marginBottom:15}}>
+              <View  style={{height:40,width:"85%", alignSelf:"center", backgroundColor: Colors.gry_color, marginBottom:15}}>
                 <Picker style={{color:'#6D6B6B', height: 45, width: "100%"}}  
                   selectedValue={selectedValue}
                   onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
@@ -70,7 +70,7 @@ centerComponent={
                 </Picker>
               </View>
 
-              <Text style={{color:"gray", marginLeft:30,fontWeight:"700", marginBottom:10}}>driving License Document</Text>
+              <Text style={{color:"gray", marginLeft:30,fontWeight:"700", marginBottom:10, fontSize:16}}>driving License Document</Text>
 
               <View style={{height:"10%", borderColor:"gray", width:"20%", marginBottom:70, borderWidth:1, marginLeft:29}}>
                 <Text style={{fontSize:20, textAlign:"center", marginTop:25}}>+</Text>
@@ -78,7 +78,7 @@ centerComponent={
 
     <TouchableOpacity style={{height:"5%", width:"75%", borderRadius:5, alignSelf:"center", backgroundColor:"green" }}
     onPress={() => navigation.navigate('RequestSubmit')}>
-      <Text style={{textAlign:"center", marginTop:10, color:"white",  }}>Submit</Text>
+      <Text style={{textAlign:"center", marginTop:10, color:"white", fontWeight:"700" }}>Submit</Text>
     </TouchableOpacity>
    </View>
   );

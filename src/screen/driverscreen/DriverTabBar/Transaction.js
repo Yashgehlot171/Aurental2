@@ -82,7 +82,7 @@ export default class App extends Component {
 </View>
 <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:10,marginBottom:5}}>
  <Text style={{fontSize:16,color:Colors.dark_gry,}}>Receiver Name : Receiver</Text>
-<Text style={{color:Colors.dark_gry}}>Item delivering</Text>
+<Text style={{color:Colors.dark_gry, fontWeight:"700"}}>Item delivering</Text>
 </View>
 
  <Text style={{fontSize:16,color:Colors.dark_gry,fontWeight:'bold',marginBottom:10,marginTop:5}}>Item Type : Parcel</Text>
@@ -94,18 +94,24 @@ export default class App extends Component {
     renderHistory = ({ item, index }) => (
       <View style={{ margin: 5,marginHorizontal:10, flex: 1,backgroundColor:Colors.gry_color ,padding:15}}>
      
-      <TouchableOpacity onPress ={()=>{this.props.navigation.navigate('CourierDetail')}}>
+      <TouchableOpacity onPress ={()=>{this.props.navigation.navigate('TransactionDetail')}}>
          <View style={{flexDirection:'row',justifyContent:'space-between'}}>
   <Text style={{fontSize:16,color:Colors.dark_gry,fontWeight:'bold'}}>Delivery ID : 1234567890</Text>
  <Text style={{color:Colors.dark_gry}}>Status</Text>
  </View>
  <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:10,marginBottom:5}}>
   <Text style={{fontSize:16,color:Colors.dark_gry,}}>Receiver Name : Receiver</Text>
- <Text style={{color:Colors.dark_gry}}>Item delivering</Text>
+ <Text style={{color:Colors.dark_gry, fontWeight:"700"}}>Done</Text>
  </View>
  
   <Text style={{fontSize:16,color:Colors.dark_gry,fontWeight:'bold',marginBottom:10,marginTop:5}}>Item Type : Parcel</Text>
+
+  <View style={{flexDirection:'row',justifyContent:'space-between',marginBottom:5}}>
  <Text style={{color:Colors.dark_gry}}>(L/W/H)</Text>
+ <View style={{backgroundColor:'#BBE0E5',borderRadius:15,width:60,height:30,alignItems:'center',justifyContent:'center'}}>
+     <Text style={{color:'#000',fontSize:12}}>$ 12.00</Text>
+</View>
+ </View>
  </TouchableOpacity>
      </View>
     )
@@ -134,7 +140,7 @@ export default class App extends Component {
                         </TouchableOpacity>
                     }
                     centerComponent={
-                        <Text style={{ width: '100%', color: Colors.dark_gry, fontSize:20, textAlign: 'center', marginTop: 5, marginLeft: -5, height: 40 }}>Transaction</Text>
+                        <Text style={{ width: '100%', fontSize:20, textAlign: 'center', marginTop: 5, marginLeft: -5, height: 40, fontWeight:"700" }}>Transaction</Text>
 
                     }
                    

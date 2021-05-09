@@ -34,7 +34,7 @@ const screenD19 = () => {
 
       /> 
       <View style={{backgroundColor:'#000',width:'100%',height:0.5,marginVertical:5}}/>
-      <View  style={{height:40,width:"85%", alignSelf:"center", backgroundColor:"#f0eded", marginBottom:35, marginTop:30}}>
+      <View  style={{height:40,width:"85%", alignSelf:"center", backgroundColor: Colors.gry_color, marginBottom:35, marginTop:30}}>
         <Picker style={{color:'#6D6B6B', height: 45, width: "100%"}}  
           selectedValue={selectedValue}
           onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
@@ -53,14 +53,24 @@ const screenD19 = () => {
        
 
      
-      <View style={{height:50, width:"75%", borderRadius:5, alignSelf:"center", backgroundColor:"#f0eded", marginTop:100, opacity:0.5}}>
+      <View style={{ height:50, width:"75%", borderRadius:5, alignSelf:"center", backgroundColor: Colors.gry_color, marginTop:100, opacity:0.5}}>
+      <View style={{flexDirection:"row", width:"95%", justifyContent:"space-between", marginTop:15}}>
+      <Text style={{  marginLeft:10, fontWeight:"bold",fontSize:16 }}>Contact Admin to Book Admin</Text>
         <TouchableOpacity>
           <Image
-           style={{height:20, width:20, alignSelf:"flex-end", marginTop:12, marginRight:10, resizeMode:"contain"}}
+           style={{height:20, width:20, resizeMode:"contain"}}
             source={require('../../../../assets/icon/right.png')}
           />
         </TouchableOpacity>
-        <Text style={{ marginTop:-12, marginLeft:10, fontWeight:"bold",fontSize:16 }}>Contact Admin to Book Admin</Text>
+      </View>
+      {/* <Text style={{  marginLeft:10, fontWeight:"bold",fontSize:16 }}>Contact Admin to Book Admin</Text>
+        <TouchableOpacity>
+          <Image
+           style={{height:20, width:20, resizeMode:"contain"}}
+            source={require('../../../../assets/icon/right.png')}
+          />
+        </TouchableOpacity> */}
+        {/* <Text style={{  marginLeft:10, fontWeight:"bold",fontSize:16 }}>Contact Admin to Book Admin</Text> */}
       </View>
        
     </View>
