@@ -113,6 +113,8 @@ centerComponent={
                       
                      <Text style={{color:Colors.dark_gry,fontSize:16,fontWeight:'bold'}}>pickup Date</Text>
                      <Text style={{color:Colors.dark_gry,fontSize:16,marginVertical:10}}>{this.state.date}</Text>
+
+                     <View style={{backgroundColor:'#000',width:'100%',height:0.5,marginVertical:5, alignSelf:"center"}}/>
                        
                      <Text style={{color:Colors.dark_gry,fontSize:16,fontWeight:'bold',marginVertical:15}}>Subtotal</Text>
                      <View style={{flexDirection:'row',justifyContent:'space-between'}}>

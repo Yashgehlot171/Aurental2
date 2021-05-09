@@ -37,7 +37,7 @@ leftComponent={
     </TouchableOpacity>
 }
 centerComponent={
-    <Text style={{ width: '100%', color: Colors.dark_gry, fontSize:20, textAlign: 'center', marginTop: 5, marginLeft: -5, height: 40 }}>Confirm Delivery</Text>
+    <Text style={{ width: '100%', color: Colors.dark_gry, fontSize:20, textAlign: 'center', marginTop: 5, marginLeft: -5, height: 40 }}>Checkout</Text>
 
 }
 
@@ -45,18 +45,18 @@ centerComponent={
 <View style={{backgroundColor:'#000',width:'100%',height:0.5,marginVertical:10}}/>
 
                      <View style={{flex:1,padding:21,}}>
-<ScrollView>
+<ScrollView showsVerticalScrollIndicator={false}>
                      <Text style={{color:Colors.dark_gry,fontSize:16,}}>Your delivery receipt has been made! Complete the payment to activate your Delivery ID.</Text>
-                     <Text style={{color:Colors.dark_gry,fontSize:16,marginVertical:10,textAlign:'center'}}>Delivery ID : 1234567890</Text>
+                     <Text style={{color:Colors.dark_gry,fontSize:22,marginVertical:10,textAlign:'center'}}>Delivery ID : 1234567890</Text>
                      <Text style={{color:Colors.dark_gry,fontSize:16,marginVertical:10,fontWeight:'bold',textAlign:'center',marginBottom:10}}>Copy</Text>
                       
  
-                     <Text style={{color:Colors.dark_gry,fontSize:22,marginVertical:10,textAlign:'center'}}>$200.00</Text>
+                     <Text style={{color:Colors.dark_gry,fontSize:30,marginVertical:10,textAlign:'center', fontWeight:"700"}}>$200.00</Text>
                 
 
-                     <Text style={{color:Colors.dark_gry,fontSize:16,marginVertical:10,textAlign:'center'}}>SGD</Text>
+                     <Text style={{color:Colors.dark_gry,fontSize:18,marginVertical:5,textAlign:'center'}}>SGD</Text>
                       
-                     <Text style={{color:Colors.dark_gry,fontSize:16,fontWeight:'bold',marginTop:10}}>Aurental Singapore</Text>
+                     <Text style={{color:Colors.dark_gry,fontSize:17,fontWeight:'bold',marginTop:10, textAlign:"center", marginBottom:10}}>Aurental Singapore</Text>
    
                      <TextInput
                                     style={[styles.auth_textInput2,]}
@@ -91,11 +91,17 @@ centerComponent={
                      <Text style={{color:Colors.dark_gry,fontSize:16,marginBottom:5,fontWeight:'bold'}}>TOTAL</Text>
                      <Text style={{color:Colors.dark_gry,fontSize:16,marginVertical:5,fontWeight:'bold'}}>$ 25.00</Text>
                      </View>
+
+                     <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:10}}>
+                     <Text style={{color:Colors.dark_gry,fontSize:16,marginBottom:5,fontWeight:'bold'}}>Payment Method</Text>
+                     <Text style={{color:Colors.dark_gry,fontSize:16,fontWeight:'bold'}}>Change</Text>
+                     </View>
+
                      <View style={{alignItems:'center'}}>
                      <Image style={{ width: 110, height: 111,  marginLeft: 10, marginTop: 5, resizeMode: 'contain' }} source={require('../../../../assets/qr.png')} />
                          <TouchableOpacity style={{borderColor:'#000',width:'90%',height:45,borderWidth:1,justifyContent:'center',alignItems:'center'}}
                          onPress={()=>{this.props.navigation.navigate('Paid')}}>
-                             <Text style={{color:Colors.text_black}}>Waiting</Text>
+                             <Text style={{color:"grey", fontSize:16}}>Waiting for Payment..</Text>
                          </TouchableOpacity>
                      </View>
                      </ScrollView>
