@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "721818049688",
+    "project_id": "aurental-1073d",
+    "storage_bucket": "aurental-1073d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:721818049688:android:f0d5c5d6356eecfe4b44ed",
+        "android_client_info": {
+          "package_name": "com.aurental"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "721818049688-0b9eqp9ujignvqj4430ur8jpe4nvc4n5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkdusEXC_kWurLybH2NmAqUQUxh19iBPw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "721818049688-0b9eqp9ujignvqj4430ur8jpe4nvc4n5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

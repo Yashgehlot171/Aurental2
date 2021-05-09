@@ -19,6 +19,7 @@ import App from '../screen/customerscreen/TabScreen/MoreC';
 // import IcoCalculation from '../Screens/TabScreen/HomeScreen/IcoCalculation';
 import DriverLogin from '../screen/driverscreen/DriverLogign'
 import DriverSignUp from '../screen/driverscreen/DriverSignup'
+import SignUpComplete from '../screen/driverscreen/SignUpComplete'
 const SplashStack = createStackNavigator(
     {
       Splash: {
@@ -63,6 +64,13 @@ const SplashStack = createStackNavigator(
           },
           DriverSignUp: {
             screen: DriverSignUp,
+            navigationOptions:()=>({
+              header: null,
+           
+            }) 
+          },
+          SignUpComplete: {
+            screen: SignUpComplete,
             navigationOptions:()=>({
               header: null,
            

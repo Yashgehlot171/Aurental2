@@ -31,24 +31,24 @@ export default class App extends Component {
                     containerStyle={{ elevation: 0, justifyContent: 'center', borderBottomWidth: 0 }}
                     backgroundColor={Colors.text_white}
                     placement={"left"}
-                    leftComponent={
-                        <TouchableOpacity style={{ alignSelf: 'center', justifyContent: 'center', height: 25 }} onPress={() => this.props.navigation.navigate('CourierCalculator')}>
-                            <Image style={{ width: 30, height: 30, tintColor: '#000', marginLeft: 10, marginTop: 5, resizeMode: 'contain' }} source={require('../../../../assets/icon/calculator.png')} />
+                    // leftComponent={
+                    //     <TouchableOpacity style={{ alignSelf: 'center', justifyContent: 'center', height: 25 }} onPress={() => this.props.navigation.navigate('CourierCalculator')}>
+                    //         <Image style={{ width: 30, height: 30, tintColor: '#000', marginLeft: 10, marginTop: 5, resizeMode: 'contain' }} source={require('../../../../assets/icon/calculator.png')} />
 
-                        </TouchableOpacity>
-                    }
+                    //     </TouchableOpacity>
+                    // }
                     centerComponent={
 
                         <Image style={{ width:'100%', height: 30, resizeMode:'contain', }} source={require('../../../../assets/logo.jpg')} />
                     }
-                    rightComponent={
-                        <TouchableOpacity style={{ alignSelf: 'center', justifyContent: 'center', height: 25 }} onPress={() => this.props.navigation.navigate('')}>
-                            <Image style={{ width: 30, height: 30, tintColor: '#000', marginRight: 10, marginTop: 5, resizeMode: 'contain' }} source={require('../../../../assets/icon/notification.png')} />
+                    // rightComponent={
+                    //     <TouchableOpacity style={{ alignSelf: 'center', justifyContent: 'center', height: 25 }} onPress={() => this.props.navigation.navigate('')}>
+                    //         <Image style={{ width: 30, height: 30, tintColor: '#000', marginRight: 10, marginTop: 5, resizeMode: 'contain' }} source={require('../../../../assets/icon/notification.png')} />
 
-                        </TouchableOpacity>
-                    }
+                    //     </TouchableOpacity>
+                    // }
                 />
-                <View style={{backgroundColor:'#000',width:'100%',height:1,marginVertical:10}}/>
+                             <View style={{ backgroundColor: '#000', width: '100%', height: 0.3, marginVertical: 3 }} />
                 <ScrollView>
                      <View style={{flex:1,padding:14,alignItems:'center',}}>
 

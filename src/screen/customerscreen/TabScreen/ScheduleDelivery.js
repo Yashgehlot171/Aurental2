@@ -15,6 +15,7 @@ import Colors from '../../../constant/Color'
 
 import { Header, Icon, Avatar } from 'react-native-elements';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import DatePicker from 'react-native-datepicker';
 // const Screen7 = () => {
 
 //   const [selectedValue, setSelectedValue] = useState("java");
@@ -30,7 +31,7 @@ export default class App extends Component {
       Lenght: '',
       width: '',
       height: '',
-      weight:"",
+      weight:"",date:'',
       showpassword: true
     }
   }
@@ -50,7 +51,7 @@ export default class App extends Component {
         loadIntialState = async () => {
           
               var value = await AsyncStorage.getItem('user_token');
-            // console.log('token',value)
+            console.log('token',value)
             this.getDataUsingPost(value);
         }
 
@@ -59,7 +60,7 @@ getDataUsingPost = (value) => {
    
     // {console.log('token------',token)}
     let _data = { receiver_name:this.state.name, receiver_address:this.state.address ,
-      receiver_mobile:this.state.mobile ,pickup_date:'2021-05-01,',package_weight:this.state.weight,package_id:'1' }
+      receiver_mobile:this.state.mobile ,pickup_date:this.state.date,package_weight:this.state.weight, }
     
     fetch('http://ec2-54-251-142-179.ap-southeast-1.compute.amazonaws.com:6060/api/v1/aurental/add_order', {
       method: "POST",
@@ -70,13 +71,14 @@ getDataUsingPost = (value) => {
     })
     .then((response) => response.json())
     .then((responseJson) => {
-        console.log("jso22222222222n",responseJson );
+        console.log("add__order response",responseJson );
 
         if(responseJson.status===1){
             // let user_info = responseJson.data
             // let user_token = responseJson.token
            
-            this.props.navigation.navigate('ConfirmDelivery')
+            this.props.navigation.navigate('ConfirmDelivery',{name:this.state.name, address:this.state.address ,
+              mobile:this.state.mobile ,pickup_date:this.state.date,package_weight:this.state.weight,})
         }
         else if(responseJson.status===0){
             // alert(responseJson.message)
@@ -112,7 +114,7 @@ getDataUsingPost = (value) => {
           }
 
         />
-        <View style={{ backgroundColor: '#000', width: '100%', height: 0.5, marginBottom:4 }} />
+      <View style={{backgroundColor:'#000',width:'100%',height:0.5,marginVertical:5}}/>
 
         <ScrollView style={{ flex: 1 }}>
           <TextInput
@@ -146,9 +148,35 @@ getDataUsingPost = (value) => {
               <Picker.Item label="package_name" value="package_name" />
             </Picker>
           </View>
-
-
-
+<View   style={{width:'85%',backgroundColor:Colors.gry_color,borderRadius:5,marginLeft:30,marginBottom:15}}> 
+          <DatePicker
+          style={{width:'85%', backgroundColor:Colors.gry_color,borderRadius:5,marginLeft:30,marginRight:10,borderWidth:0}}
+          date={this.state.date} // Initial date from state
+          mode="date" // The enum of date, datetime and time
+          placeholder="select date"
+          format="YYYY-MM-DD"
+          minDate="2020-01-01"
+          maxDate="2050-01-01"
+          confirmBtnText="Confirm"
+          cancelBtnText="Cancel"
+          customStyles={{
+            dateIcon: {
+              //display: 'none',
+              position:'relative',
+              left: 0,
+              top: 4,
+              marginLeft: 0,
+            },
+            dateInput: {
+              width:200,
+              marginLeft: 36,
+            },
+          }}
+          onDateChange={(date) => {this.setState({date:date})
+            // setDate(date);
+          }}
+        />
+</View>
           <View style={{ flexDirection: "row" }}>
             <Text style={{ marginLeft: 35, color: "#aaa", fontSize: 15, marginTop: 9 }}>Parcel Weight</Text>
 

@@ -8,6 +8,14 @@ import Colors from '../../constant/Color';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Header, Icon, Avatar } from 'react-native-elements';
 import Loader from '../../../Loader/index';
+// import { GoogleSignin, statusCodes } from 'react-native-google-signin';
+// GoogleSignin.configure({
+//     scopes: [
+//       'https://www.googleapis.com/auth/userinfo.email',
+//       'https://www.googleapis.com/auth/userinfo.profile',
+//       // 'https://www.googleapis.com/auth/userinfo.gender'
+//     ]
+//   });
 export default class App extends Component {
     constructor(props) {
         super(props);
@@ -25,7 +33,7 @@ export default class App extends Component {
     validation = () => {
 
         let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        let phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+        // let phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
         if (this.state.email === '' && this.state.password === '' && this.state.name === '' && this.state.mobile === '' && this.state.address === '') {
             // this.setState({ isLoading: false })
             alert('Please Enter all field')
@@ -48,7 +56,7 @@ export default class App extends Component {
         else if (reg.test(this.state.email) === false) {
             alert('Please Enter Correct Email Id')
         }
-        else if (phoneno.test(this.state.mobile) === false) {
+        else if (this.state.mobile.trim().length <= 7) {
             alert('Please Enter Correct Mobile No')
         }
         else {
@@ -101,7 +109,39 @@ export default class App extends Component {
         });
       };
 
-
+    //   googleSignIn = async () => {
+    //     try {
+    //     //   this.showLoader();
+    //       await GoogleSignin.hasPlayServices();
+    //       const userInfo = await GoogleSignin.signIn();
+    //       this.setState({ userInfo });
+    //       // alert('User name :- ' + userInfo.user.name);
+    //       console.log('user@@@@@@@@@', userInfo);
+    //     //   this.googleLogin(userInfo);
+    //       // this.showToast('yash');
+    //       // call function for sign in or sign up
+    //     } catch (error) {
+    //     //   this.hideLoader();
+    //       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+    //         // user cancelled the login flow
+    //         // alert('user cancelled the login flow');
+    //         alert('Google Sign in Failed','User cancelled the login flow');
+    //       } else if (error.code === statusCodes.IN_PROGRESS) {
+    //         // operation (i.e. sign in) is in progress already
+    //         // alert('operation (f.e. sign in) is in progress already');
+    //         alert('Google Sign in Failed','operation (f.e. sign in) is in progress already');
+    //       } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+    //         // play services not available or outdated
+    //         // alert('play services not available or outdated');
+    //         alert('Google Sign in Failed','play services not available or outdated');
+    //       } else {
+    //         // some other error happened
+    //         // alert(error);
+    //         console.log('error',error);
+    //         alert('Google Sign in Failed',error);
+    //       }
+    //     }
+    //   };
     render() {
         return (
             <View style={styles.container}>
@@ -267,19 +307,24 @@ centerComponent={
                        </View>
 
                        <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 25, width: '90%' }}>
-                                    <View style={{ width: 90, height: 60, borderWidth: 1, borderColor: '#CCC', borderRadius: 3, justifyContent: 'center', alignItems: 'center' }}>
-                                        <Image style={{ width: 50, height: 35, resizeMode: 'contain', }} source={require('../../../assets/apple.png')} />
+                          <TouchableOpacity onPress ={()=>{}}>    
+                       <View style={{ width: 90, height: 60, borderWidth: 1, borderColor: '#CCC', borderRadius: 3, justifyContent: 'center', alignItems: 'center' }}>
+                                        <Image style={{ width: 50, height: 35, resizeMode: 'contain', }} source={require('../../../assets/google.png')} />
                                     </View>
+                                    </TouchableOpacity>   
+
                                     <View style={{ width: 90, height: 60, borderWidth: 1, borderColor: '#CCC', borderRadius: 3, justifyContent: 'center', alignItems: 'center' }}>
                                         <Image style={{ width: 50, height: 35, resizeMode: 'contain', }} source={require('../../../assets/FB.png')} />
                                     </View>
                                     <View style={{ width: 90, height: 60, borderWidth: 1, borderColor: '#CCC', borderRadius: 3, justifyContent: 'center', alignItems: 'center' }}>
-                                        <Image style={{ width: 50, height: 35, resizeMode: 'contain', }} source={require('../../../assets/google.png')} />
+                                        <Image style={{ width: 50, height: 35, resizeMode: 'contain', }} source={require('../../../assets/apple.png')} />
                                     </View>
+                               
+
                                 </View>
                         </View>
                         </View>
-                        <View style={{justifyContent:'flex-end',alignItems:'center'}}>
+                        <View style={{justifyContent:'flex-end',alignItems:'center',marginBottom:10}}>
                            <TouchableOpacity onPress={()=>{this.props.navigation.navigate('CustomerLogin')}}>
                             <Text style={{fontSize:16,color:Colors.dark_gry}}>I have an account?<Text  style={{fontSize:16,color:Colors.introButton}}> Sign In.</Text> </Text></TouchableOpacity>
                         </View>

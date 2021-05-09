@@ -8,7 +8,7 @@ import {
   FlatList,
   ScrollView
 } from 'react-native';
-
+import Colors from '../../../constant/Color';
 export default class LogoutScreen extends Component{
   constructor(props) {
     super(props);
@@ -57,7 +57,7 @@ export default class LogoutScreen extends Component{
   render() {
   return (
     <ScrollView> 
-   <View style={{flex:1,}}>
+   <View style={{flex:1,backgroundColor:'#fff'}}>
      <Image
         style={{height:70, width:70, alignSelf:"center", marginTop:45, marginBottom:15}}
         source={require('../../../../assets/icon/submitted.png')}
@@ -92,13 +92,14 @@ export default class LogoutScreen extends Component{
        <View style={{height:1, backgroundColor:"gray", width:70}}></View>
       </View>
       </View>
-
-      <TouchableOpacity
+<View style={{alignItems:'center',justifyContent:'center',padding:10}}>
+      <TouchableOpacity style={{backgroundColor:Colors.introButton ,height:40,width:'85%',borderRadius:5}}
       onPress={()=>{this.props.navigation.navigate('Wallet')}}>
-        <Text style={{textAlign:"center", color:"red"}}>Wallet</Text>
+        <Text style={{textAlign:"center", color:"#fff",marginTop:8}}>Wallet</Text>
       </TouchableOpacity>
-
-      <TouchableOpacity>
+      </View>
+      <TouchableOpacity
+      onPress={()=>{this.props.navigation.navigate('Auth')}}>
         <Text style={{textAlign:"center", color:"red"}}>Sign Out</Text>
       </TouchableOpacity>
       <View style={{height:1, backgroundColor:"red", width:60, alignSelf:"center"}}></View>
@@ -154,8 +155,8 @@ const styles = StyleSheet.create({
     // marginLeft:10,
   },
   time:{
-    fontSize:10,
-    color:"gray"
+    fontSize:14,
+    color:Colors.dark_gry
   }
 });
 

@@ -53,14 +53,14 @@ const screenD19 = () => {
        
 
      
-      <View style={{height:"5%", width:"75%", borderRadius:5, alignSelf:"center", backgroundColor:"#f0eded", marginTop:100, opacity:0.5}}>
+      <View style={{height:50, width:"75%", borderRadius:5, alignSelf:"center", backgroundColor:"#f0eded", marginTop:100, opacity:0.5}}>
         <TouchableOpacity>
           <Image
-           style={{height:20, width:20, alignSelf:"flex-end", marginTop:10, marginRight:10, resizeMode:"contain"}}
+           style={{height:20, width:20, alignSelf:"flex-end", marginTop:12, marginRight:10, resizeMode:"contain"}}
             source={require('../../../../assets/icon/right.png')}
           />
         </TouchableOpacity>
-        <Text style={{ marginTop:-20, marginLeft:10, fontWeight:"bold" }}>Contact Admin to Book Admin</Text>
+        <Text style={{ marginTop:-12, marginLeft:10, fontWeight:"bold",fontSize:16 }}>Contact Admin to Book Admin</Text>
       </View>
        
     </View>

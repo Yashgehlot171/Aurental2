@@ -134,7 +134,7 @@ centerComponent={
 
 />
 <ScrollView>
-                        <View style={{alignItems:'center',justifyContent:'center',marginTop:5,flex:1,padding:5}}>
+                        <View style={{alignItems:'center',justifyContent:'center',marginTop:5,flex:1,padding:10}}>
                         <Image style={{ width: 230, height: 100, resizeMode: 'cover',  }} source={require('../../../assets/appIcon2.jpg')} />
                       
                           <TextInput
@@ -269,9 +269,9 @@ centerComponent={
                                     placeholderTextColor={Colors.dark_gry}
                                     autoCapitalize='none'/>
 
-                                <View style={{alignSelf: 'center', width: '80%', backgroundColor:Colors.gry_color, color: Colors.dark_gry, marginTop: 40,paddingLeft:10}}>
-                                    <Text style={{fontSize:20}}>Identify Document</Text>
-                                    <Text style={{color:"grey"}}>Take a photo on you document to verify your identity</Text>
+                                <View style={{alignSelf: 'center', width: '80%', backgroundColor:Colors.gry_color, color: Colors.dark_gry, marginTop: 40,padding:15}}>
+                                    <Text style={{fontSize:18,color:'grey'}}>Identify Document</Text>
+                                    <Text style={{color:"grey",fontSize:12}}>Take a photo on you document to verify your identity</Text>
                                     <TouchableOpacity style={styles.button_Style}
                                       onPress={() => { this.props.navigation.navigate('') }}>
                                       <Text style={{ fontSize:16, color: Colors.introButtonLabel }}>Photo Document </Text>
@@ -344,13 +344,13 @@ centerComponent={
                                      
                                      <View style={{flexDirection:"row", justifyContent:"space-evenly", width:"100%"}}>
                                      <CheckBox
-                                     style={{marginLeft:10}}
+                                     style={{padding:15,color:'grey',marginLeft:5}}
                                        isChecked={this.state.termsCheck}
                                       onClick={() => {
                                         this.setState({termsCheck: !this.state.termsCheck});
                                            }}
                                           />
-                                    <Text style={{color:"grey", paddingLeft:15}}>By proceeding, I agree that Aurental can collet, use, and disclose 
+                                    <Text style={{color:"grey", padding:15,marginRight:15}}>By proceeding, I agree that Aurental can collet, use, and disclose 
                                          the informationprovided by me in accordance with the Privacy 
                                          Policy and I fully comply with Terms & Conditions which I have 
                                          read and understand.</Text>
@@ -358,7 +358,7 @@ centerComponent={
                                      
                         <View style={{alignItems:'center',marginTop:10}}>
                         <TouchableOpacity style={styles.button_Style}
-                           onPress={() => { this.props.navigation.navigate('DriverApp') }}
+                           onPress={() => { this.props.navigation.navigate('SignUpComplete') }}
                             >
                                 <Text style={{ fontSize:16, color: Colors.introButtonLabel }}>Sign Up </Text>
                             </TouchableOpacity>
@@ -382,7 +382,7 @@ centerComponent={
                                 </View>
                         </View>
                         </View>
-                        <View style={{justifyContent:'flex-end',alignItems:'center'}}>
+                        <View style={{justifyContent:'flex-end',alignItems:'center',marginBottom:10}}>
                            <TouchableOpacity onPress={()=>{this.props.navigation.navigate('CustomerLogin')}}>
                             <Text style={{fontSize:16,color:Colors.dark_gry}}>I have an account?<Text  style={{fontSize:16,color:Colors.introButton}}> Log In.</Text> </Text></TouchableOpacity>
                         </View>

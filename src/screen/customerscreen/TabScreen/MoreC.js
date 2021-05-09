@@ -17,7 +17,7 @@ export default class App extends Component {
             email: '',
             password: '',
             showpassword: true,
-            user_data:[],isLoading: false
+            user_data:'',isLoading: false
         }
     }
     componentDidMount = async () => {
@@ -106,48 +106,29 @@ export default class App extends Component {
    <View style={{flex:1,backgroundColor:'#fff'  }}>
      <SafeAreaView/>
      <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
-         {/* <Header
+       
 
-statusBarProps={{ barStyle: 'dark-content' }}
-height={85}
-containerStyle={{ elevation: 0, justifyContent: 'center', borderBottomWidth: 0 }}
-backgroundColor={Colors.text_white}
-placement={"left"}
-leftComponent={
-    <TouchableOpacity style={{ alignSelf: 'center', justifyContent: 'center', height: 25 }} onPress={() => this.props.navigation.goBack()}>
-        <Image style={{ width: 25, height: 25, tintColor: '#000', marginLeft: 10, marginTop: 5, resizeMode: 'contain' }} source={require('../../../../assets/icon/left.png')} />
-
-    </TouchableOpacity>
-}
-centerComponent={
-    <Text style={{ width: '100%', color: Colors.dark_gry, fontSize:20, textAlign: 'center', marginTop: 5, marginLeft: -5, height: 40 }}>Booking</Text>
-
-}
-
-/>
-<View style={{backgroundColor:'#000',width:'100%',height:0.5,marginVertical:10}}/> */}
-{ this.state.user_data.map((item, key) => (
         <View style={{flex:1, alignItems:"center", justifyContent:'center' }}>
      
      <Image
         style={{height:70, width:70, alignSelf:"center", marginTop:45, marginBottom:15,borderRadius:35,backgroundColor:'#eee'}}
         // source={require('../../../../assets/car1.png')}
       />
-      <Text numberOfLines={2} style={{textAlign:"center", fontSize:17, color:"gray", marginBottom:25}}>Customer Name: {item.user_name}</Text>
+      <Text numberOfLines={2} style={{textAlign:"center", fontSize:17, color:"gray", marginBottom:25}}>Customer Name: {this.state.user_data.user_name}</Text>
       <View style={{backgroundColor:"#f0eded", height:"33%", width:"75%", marginTop:5, alignItems:"center", marginBottom:10}}>
         <View style={{flexDirection:"row", marginTop:25}}>
           <Text style={{width:100}}>E-mail Address</Text>
-          <Text numberOfLines={2} style={{marginLeft:35, color:"gray",width:100,fontSize:14}}>{item.email}</Text>
+          <Text numberOfLines={2} style={{marginLeft:35, color:"gray",width:100,fontSize:14}}>{this.state.user_data.email}</Text>
         </View>
 
         <View style={{flexDirection:"row", padding:5}}>
           <Text style={{width:100}}>Phone Number</Text>
-          <Text style={{marginLeft:35, color:"gray",width:100}}>{item.mobile_no}</Text>
+          <Text style={{marginLeft:35, color:"gray",width:100}}>{this.state.user_data.mobile_no}</Text>
         </View>
 
         <View style={{flexDirection:"row", }}>
           <Text style={{width:100}}>Address</Text>
-          <Text numberOfLines={1} style={{marginLeft:35, color:"gray",width:100}}>{item.address}</Text>
+          <Text numberOfLines={1} style={{marginLeft:35, color:"gray",width:100}}>{this.state.user_data.address}</Text>
         </View>
 
         <View style={{flexDirection:"row",  padding:5,paddingBottom:10}}>
@@ -159,11 +140,11 @@ centerComponent={
       </View>
       
    </View> 
-))
-}
+
+
 <View style={{alignItems:'center'}}> 
 <TouchableOpacity style={{height:40}}
-          onPress={()=>{this.props.navigation.navigate('EditProfileDetails')}}
+          onPress={()=>{this.props.navigation.navigate('EditProfileDetails',{user_data:this.state.user_data})}}
         >
         <Text style={{marginTop:20}}>Edit Profile</Text>
         <View style={{height:1, backgroundColor:"gray", width:70}}></View>

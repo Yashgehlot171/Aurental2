@@ -19,12 +19,8 @@ import VehicleDetails from '../screen/driverscreen/DriverTabBar/VehicleDetails';
 import Wallet from '../screen/driverscreen/DriverTabBar/Wallet';
 import Transaction from '../screen/driverscreen/DriverTabBar/Transaction'
 import CourierDetail from '../screen/driverscreen/DriverTabBar/CourierDetail'
-import ScheduleDelivery from '../screen/customerscreen/TabScreen/ScheduleDelivery';
-import RateDelivery from '../screen/customerscreen/TabScreen/RateDelivery';
-import DeliveryContact from '../screen/customerscreen/TabScreen/DeliveryContact';
-import Checkout from '../screen/customerscreen/TabScreen/Checkout';
-import ConfirmDelivery from '../screen/customerscreen/TabScreen/ConfirmDelivery';
-import Paid from '../screen/customerscreen/TabScreen/Paid';
+import Completed from '../screen/driverscreen/DriverTabBar/Completed'
+import RouteScreen from '../screen/driverscreen/DriverTabBar/RouteScreen'
  
 const transitionConfig = () => {
     return {
@@ -135,18 +131,18 @@ const HistoryDStack = createStackNavigator(
                 header: null
             })
         },
-        // RateDelivery: {
-        //     screen: RateDelivery,
-        //     navigationOptions: ({ navigation }) => ({
-        //         header: null
-        //     })
-        // },
-        // DeliveryContact: {
-        //     screen: DeliveryContact,
-        //     navigationOptions: ({ navigation }) => ({
-        //         header: null
-        //     })
-        // },
+        Completed: {
+            screen: Completed,
+            navigationOptions: ({ navigation }) => ({
+                header: null
+            })
+        },
+        RouteScreen: {
+            screen: RouteScreen,
+            navigationOptions: ({ navigation }) => ({
+                header: null
+            })
+        },
     }, {
     initialRouteName: 'HistoryD'
 }

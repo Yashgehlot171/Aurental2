@@ -2,8 +2,9 @@
 import React, { Component } from 'react'
 import { TouchableOpacity, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native';
-import { Platform, StyleSheet, StatusBar, Text, View, Alert, ImageBackground, Image, AsyncStorage, ActivityIndicator } from 'react-native';
+import { Platform, StyleSheet, StatusBar, Text, View, Alert, ImageBackground, Image, ActivityIndicator } from 'react-native';
 import Colors from '../../../constant/Color';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Header, Icon, Avatar } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
 export default class App extends Component {
@@ -12,9 +13,62 @@ export default class App extends Component {
         this.state = {
             email: '',
             password: '',
-            showpassword: true
+            showpassword: true,
+            name:'',mobile:'',address:"",weight:"",date:''
         }
     }
+    componentDidMount = async () => {
+     this.setState({ name: this.props.navigation.getParam('name')})
+     this.setState({ address: this.props.navigation.getParam('address')})
+     this.setState({ mobile: this.props.navigation.getParam('mobile')})
+     this.setState({ date: this.props.navigation.getParam('pickup_date')})
+     this.setState({ weight: this.props.navigation.getParam('package_weight')})
+        var value = await AsyncStorage.getItem('user_token');
+        // const data = await this.performTimeConsumingTask();
+    
+        // if (data !== null) {
+          console.log('token',value)
+        //   this.getDataUsingPost(value);
+        // }
+      }
+
+   
+
+getDataUsingPost = (value) => {
+//POST json
+
+// // {console.log('token------',token)}
+// let _data = { receiver_name:this.state.name, receiver_address:this.state.address ,
+// receiver_mobile:this.state.mobile ,pickup_date:this.state.date,package_weight:this.state.weight, }
+
+fetch('http://ec2-54-251-142-179.ap-southeast-1.compute.amazonaws.com:6060/api/v1/aurental/add_order', {
+method: "POST",
+// body: JSON.stringify(_data),
+headers: {"Content-type": "application/json; charset=UTF-8",
+Authorization:value
+}
+})
+.then((response) => response.json())
+.then((responseJson) => {
+  console.log("jso22222222222n",responseJson );
+
+  if(responseJson.status===1){
+      // let user_info = responseJson.data
+      // let user_token = responseJson.token
+     
+      this.props.navigation.navigate('ConfirmDelivery')
+  }
+  else if(responseJson.status===0){
+      // alert(responseJson.message)
+      // this.props.navigation.navigate('ConfirmDelivery')
+                  }
+})
+.catch((error) => {
+
+//   this.setState({ isLoading: false })
+console.error(error);
+});
+};
 
     render() {
         return (
@@ -42,23 +96,23 @@ centerComponent={
 }
 
 />
-<View style={{backgroundColor:'#000',width:'100%',height:0.5,marginVertical:1}}/>
+<View style={{backgroundColor:'#000',width:'100%',height:0.5,marginVertical:5}}/>
 
-                     <View style={{flex:1,padding:21,paddingTop:-10}}>
+                     <View style={{flex:1,padding:25,}}>
 <ScrollView>
                      <Text style={{color:Colors.dark_gry,fontSize:16,fontWeight:'bold'}}>Receiver Name</Text>
-                     <Text style={{color:Colors.dark_gry,fontSize:16,marginVertical:10}}>Jane Doe</Text>
+                     <Text style={{color:Colors.dark_gry,fontSize:16,marginVertical:10}}>{this.state.name}</Text>
                      <Text style={{color:Colors.dark_gry,fontSize:16,marginVertical:10,fontWeight:'bold'}}>Address</Text>
                       
-                     <Text style={{color:Colors.dark_gry,fontSize:16,marginVertical:5,marginBottom:10}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</Text>
+                     <Text style={{color:Colors.dark_gry,fontSize:16,marginVertical:5,marginBottom:10}}>{this.state.address}</Text>
                      <Text style={{color:Colors.dark_gry,fontSize:16,fontWeight:'bold'}}>Receiver Phone Name</Text>
-                     <Text style={{color:Colors.dark_gry,fontSize:16,marginVertical:10}}>123456789012</Text>
+                     <Text style={{color:Colors.dark_gry,fontSize:16,marginVertical:10}}>{this.state.mobile}</Text>
                 
                      <Text style={{color:Colors.dark_gry,fontSize:16,fontWeight:'bold'}}>Parcel Type / Weight (L/W/H)</Text>
-                     <Text style={{color:Colors.dark_gry,fontSize:16,marginVertical:10}}>Techno (10/20/30 cm)</Text>
+                     <Text style={{color:Colors.dark_gry,fontSize:16,marginVertical:10}}>{this.state.weight}kg</Text>
                       
                      <Text style={{color:Colors.dark_gry,fontSize:16,fontWeight:'bold'}}>pickup Date</Text>
-                     <Text style={{color:Colors.dark_gry,fontSize:16,marginVertical:10}}>20 january 2021</Text>
+                     <Text style={{color:Colors.dark_gry,fontSize:16,marginVertical:10}}>{this.state.date}</Text>
                        
                      <Text style={{color:Colors.dark_gry,fontSize:16,fontWeight:'bold',marginVertical:15}}>Subtotal</Text>
                      <View style={{flexDirection:'row',justifyContent:'space-between'}}>
@@ -99,7 +153,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
       backgroundColor:'#fff',
-        alignItems: 'center',
+        // alignItems: 'center',
 
     },
     auth_textInput: {

@@ -34,6 +34,7 @@ centerComponent={
 }
 
 />
+<View style={{ backgroundColor: '#000', width: '100%', height: 0.3, marginVertical: 3 }} />
 
        <ScrollView> 
       <Text style={{fontSize:15, marginBottom:3, marginLeft:25, color:"grey", fontWeight:"600", marginTop:30}}>Tracking Number</Text>

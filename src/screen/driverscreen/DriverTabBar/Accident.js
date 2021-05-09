@@ -62,11 +62,11 @@ centerComponent={
      </View>
       
      <Text style={{fontSize:15, marginBottom:3, marginLeft:25, color:"grey", fontWeight:"700"}}>Vehicle Detail</Text>
-     <View style={{height:70, borderColor:"gray", width:70, marginBottom:75, borderWidth:1, marginLeft:29, marginBottom:50}}>
+     <View style={{height:70, borderColor:"gray", width:70, marginBottom:75, borderWidth:1, marginLeft:29, marginBottom:40}}>
         <Text style={{fontSize:20, textAlign:"center", marginTop:20}}>+</Text>
       </View>
 
-      <TouchableOpacity style={{height:"5%", width:"75%", borderRadius:5, alignSelf:"center", backgroundColor:"green", marginTop:100 }}>
+      <TouchableOpacity style={{height:"7%", width:"75%", borderRadius:5, alignSelf:"center", backgroundColor:"green", marginTop:50 }}>
       <Text style={{textAlign:"center", marginTop:10, color:"white",  }}>Send Notification to Admin</Text>
     </TouchableOpacity>
 

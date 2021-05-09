@@ -31,9 +31,17 @@ export default class App extends Component {
             optionaladdress:'',
             showpassword: true,
             user_image:'',
-            user_data:[],isLoading: false
+            user_data:'',
+            isLoading: false
         }
     }
+    componentDidMount = async () => {
+   this.setState({user_data:this.props.navigation.getParam('user_data')})
+//    this.setState({name:this.state.user_data.user_name})
+        // }
+      }
+  
+
     validation = () => {
 
         let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -187,7 +195,7 @@ centerComponent={
                                     style={[styles.auth_textInput,]}
                                     onChangeText={(name) => this.setState({ name })}
                                     value={this.state.name}
-                                    placeholder="Name"
+                                    placeholder={this.state.user_data.user_name}
                                     placeholderTextColor={Colors.dark_gry}
                                     autoCapitalize='none' />
                                     
@@ -195,7 +203,7 @@ centerComponent={
                                     style={[styles.auth_textInput,]}
                                     onChangeText={(mobile) => this.setState({ mobile })}
                                     value={this.state.mobile}
-                                    placeholder="Mobile Number"
+                                    placeholder={this.state.user_data.mobile_no}
                                     placeholderTextColor={Colors.dark_gry}
                                     autoCapitalize='none' />
 
@@ -204,7 +212,7 @@ centerComponent={
                                     style={[styles.auth_textInput,]}
                                     onChangeText={(email) => this.setState({ email })}
                                     value={this.state.email}
-                                    placeholder="Email "
+                                    placeholder={this.state.user_data.email}
                                     placeholderTextColor={Colors.dark_gry}
                                     autoCapitalize='none' />
 
@@ -212,14 +220,14 @@ centerComponent={
                                     style={[styles.auth_textInput,]}
                                     onChangeText={(address) => this.setState({ address })}
                                     value={this.state.address}
-                                    placeholder="Address"
+                                    placeholder={this.state.user_data.address}
                                     placeholderTextColor={Colors.dark_gry}
                                     autoCapitalize='none' />
                                                               <TextInput
                                     style={[styles.auth_textInput,]}
                                     onChangeText={(optionaladdress) => this.setState({ optionaladdress })}
                                     value={this.state.optionaladdress}
-                                    placeholder="Optional Address"
+                                    placeholder={this.state.user_data.address}
                                     placeholderTextColor={Colors.dark_gry}
                                     autoCapitalize='none' />
 
